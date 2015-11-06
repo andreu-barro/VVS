@@ -6,10 +6,35 @@ import java.util.List;
 //Esta clase implementa las funciones de la interfaz contenido 
 public class Cancion implements Contenido {
 
-	private long cancionID;
+
+
 	private String titulo;
 	private int duracion;
+
+
+
+	//Contructor vacio
+	public Cancion() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	
+	//Constructor del contenido Cancion
+	public Cancion(String titulo, int duracion)
+	{
+		this.titulo = titulo;
+		this.duracion = duracion;
+	}
+	
+	//Permite modificar añadir titulo
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+
+	//Permite añadir duracion
+	public void setDuracion(int duracion) {
+		this.duracion = duracion;
+	}
 	//Obtenemos el titulo de la cancion
 	public String obtenerTitulo() {
 		// TODO Auto-generated method stub
