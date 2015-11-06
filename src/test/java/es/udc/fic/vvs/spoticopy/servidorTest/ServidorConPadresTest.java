@@ -15,18 +15,18 @@ import es.udc.fic.vvs.spoticopy.servidor.ServidorNormal;
 public class ServidorConPadresTest {
 	
 	@Test
-	public void buscar() {
+	public void buscarTest() {
 		List<Contenido> listaContenidos = new ArrayList<Contenido>();
 		Cancion cancion = new Cancion("cancion1",5);
 		listaContenidos.add(cancion);
 		
 		// Servidor Padre
-		ServidorNormal servidorPadre = new ServidorNormal("SP", "tokenSN", listaContenidos);
+		ServidorNormal servidorPadre = new ServidorNormal("SP", listaContenidos);
 		
 		// Servidor con Padre
-		ServidorConPadres servidorConPadres = new ServidorConPadres("SCP", servidorPadre, "tokenSCP", null);
+		ServidorConPadres servidorConPadres = new ServidorConPadres("SCP", servidorPadre, null);
 		
-		assertEquals(servidorConPadres.buscar("cancion","SCP"),listaContenidos);
+		assertEquals(servidorConPadres.buscar("cancion", "ADMINISTRADOR"),listaContenidos);
 	}
 	
 }

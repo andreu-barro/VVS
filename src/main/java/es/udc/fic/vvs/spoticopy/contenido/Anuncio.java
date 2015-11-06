@@ -10,8 +10,8 @@ import java.util.List;
 public class Anuncio implements Contenido {
 
 	// Anuncio tendra una duracion y un titulo fijos
-	private static String titulo = "PUBLICIDAD";
-	private static int duracion = 5;
+	private String titulo = "PUBLICIDAD";
+	private int duracion = 5;
 	
 	// Obtiene el titulo del anuncio
 	public String obtenerTitulo() {
@@ -50,4 +50,14 @@ public class Anuncio implements Contenido {
 		return;
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		Contenido objeto = (Anuncio) obj;
+		if(titulo.contentEquals(objeto.obtenerTitulo())
+		&& duracion == objeto.obtenerDuracion()) {
+			return true;
+		}
+		
+		return false;
+	}
 }

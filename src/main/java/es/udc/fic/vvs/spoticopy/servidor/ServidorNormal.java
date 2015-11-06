@@ -8,16 +8,16 @@ import es.udc.fic.vvs.spoticopy.contenido.Contenido;
 
 public class ServidorNormal extends GenericServidor implements Servidor {
 	
-	public ServidorNormal(String nombre, String admin_token, List<Contenido> contenidos) {
-		super(nombre, admin_token, contenidos);
+	public ServidorNormal(String nombre, List<Contenido> contenidos) {
+		super(nombre, contenidos);
 	}
 	
 	public List<Contenido> buscar(String subcadena, String tok) {
 		List<Contenido> resultado = new ArrayList<Contenido>();
 		boolean hay_token = false;
 		
-		if(token != null) {
-			if(token.contains(tok)) {
+		if(tok != null) {
+			if(token.contains(tok) || token.isAdminToken(tok)) {
 				hay_token = true;
 			}
 		}
@@ -46,7 +46,8 @@ public class ServidorNormal extends GenericServidor implements Servidor {
 		}
 		
 		// Reducimos un uso al token
-		if(hay_token) {
+		// Reducimos un uso al token
+		if(hay_token && !token.isAdminToken(tok)) {
 			token.usarToken(tok);
 		}
 		

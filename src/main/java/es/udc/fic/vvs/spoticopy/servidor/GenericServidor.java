@@ -1,5 +1,6 @@
 package es.udc.fic.vvs.spoticopy.servidor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import es.udc.fic.vvs.spoticopy.contenido.Contenido;
@@ -14,9 +15,12 @@ public abstract class GenericServidor implements Servidor {
 	protected List<Contenido> contenidos;
 	protected Token token;
 	
-	public GenericServidor(String nombre, String admin_token, List<Contenido> contenidos) {
+	public GenericServidor(String nombre, List<Contenido> contenidos) {
 		this.nombre = nombre;
 		this.contenidos = contenidos;
+		if(contenidos == null) {
+			this.contenidos = new ArrayList<Contenido>();
+		}
 		this.token = Token.getInstance();
 	}
 

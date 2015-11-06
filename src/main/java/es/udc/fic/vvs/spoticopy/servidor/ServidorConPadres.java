@@ -10,9 +10,8 @@ public class ServidorConPadres extends GenericServidor implements Servidor {
 
 	private Servidor padre;
 	
-	public ServidorConPadres(String nombre, Servidor padre,
-			String admin_token, List<Contenido> contenidos) {
-		super(nombre, admin_token, contenidos);
+	public ServidorConPadres(String nombre, Servidor padre, List<Contenido> contenidos) {
+		super(nombre, contenidos);
 		this.padre = padre;
 	}
 
@@ -21,7 +20,7 @@ public class ServidorConPadres extends GenericServidor implements Servidor {
 		boolean hay_token = false;
 		
 		if(tok != null) {
-			if(token.contains(tok)) {
+			if(token.contains(tok) || token.isAdminToken(tok)) {
 				hay_token = true;
 			}
 		}
@@ -50,7 +49,7 @@ public class ServidorConPadres extends GenericServidor implements Servidor {
 		}
 		
 		// Reducimos un uso al token
-		if(hay_token) {
+		if(hay_token && !token.isAdminToken(tok)) {
 			token.usarToken(tok);
 		}
 		
