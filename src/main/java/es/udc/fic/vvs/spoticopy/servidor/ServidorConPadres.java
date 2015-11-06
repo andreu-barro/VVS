@@ -39,7 +39,9 @@ public class ServidorConPadres implements Servidor {
 		
 		while(token == null) {
 			try {
-				token = Long.toHexString(Double.doubleToLongBits(r.nextDouble()));
+				byte[] bytes = new byte[16];
+				this.r.nextBytes(bytes);
+				token = new String(bytes, "UTF-8");
 			} catch (UnsupportedEncodingException e) {
 				e.printStackTrace();
 				return null;

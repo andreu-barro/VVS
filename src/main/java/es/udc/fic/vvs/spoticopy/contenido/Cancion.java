@@ -26,12 +26,12 @@ public class Cancion implements Contenido {
 		this.duracion = duracion;
 	}
 	
-	//Permite modificar añadir titulo
+	//Permite modificar anadir titulo
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
 
-	//Permite añadir duracion
+	//Permite anadir duracion
 	public void setDuracion(int duracion) {
 		this.duracion = duracion;
 	}
