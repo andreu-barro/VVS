@@ -59,6 +59,7 @@ public class Cancion implements Contenido {
 	//Sino, devolvemos vacio
 	public List<Contenido> buscar(String subcadena) {
 		List<Contenido> contenido = new ArrayList<Contenido>();
+		//contenido.
 		if(this.titulo.contains(subcadena))
 		{
 			contenido.add(this);
