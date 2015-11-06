@@ -104,7 +104,7 @@ public class ServidorConPadres implements Servidor {
 			}
 			if(i.obtenerTitulo().contains(subcadena)) {
 				resultado.add(i);
-			}
+			}	
 			intervalo++;
 			if(intervalo >= 3) {
 				intervalo = 0;
