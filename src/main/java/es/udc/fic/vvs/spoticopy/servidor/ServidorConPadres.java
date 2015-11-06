@@ -49,6 +49,11 @@ public class ServidorConPadres extends GenericServidor implements Servidor {
 			}
 		}
 		
+		// Reducimos un uso al token
+		if(hay_token) {
+			token.usarToken(tok);
+		}
+		
 		// Usamos al padre si el contenido está vacío
 		if(resultado.isEmpty()) {
 			resultado = padre.buscar(subcadena, tok);

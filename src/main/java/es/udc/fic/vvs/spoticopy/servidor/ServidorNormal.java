@@ -45,6 +45,11 @@ public class ServidorNormal extends GenericServidor implements Servidor {
 			}
 		}
 		
+		// Reducimos un uso al token
+		if(hay_token) {
+			token.usarToken(tok);
+		}
+		
 		return resultado;
 	}
 

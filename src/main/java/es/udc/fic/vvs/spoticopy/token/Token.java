@@ -8,13 +8,17 @@ import java.util.Random;
 
 public class Token {
 
+	private final static Long MAX_USES = 10L;
+	
 	private static List<String> tokens;
+	private static List<Long> usos;
 	private static Token instance = null;
 	private static String admin_token;
 	private static Random r;
 	
 	private Token(String admin_t) {
 		tokens = new ArrayList<String>();
+		usos = new ArrayList<Long>();
 		admin_token = admin_t;
 		// Introducir una semilla concreta si se quiere una generación de
 		// tokens predecible entre ejecuciones de la aplicación
@@ -48,13 +52,16 @@ public class Token {
 				token = null;
 			} else {
 				tokens.add(token);
+				usos.add(MAX_USES);
 			}
 		}
 		return token; 
 	}
 
 	public void baja(String token) {
-		tokens.remove(token);
+		int index = tokens.indexOf(token);
+		tokens.remove(index);
+		usos.remove(index);
 	}
 	
 	public boolean isAdminToken(String token) {
@@ -65,4 +72,15 @@ public class Token {
 		return tokens.contains(token);
 	}
 	
+	public void usarToken(String token) {
+		int index = tokens.indexOf(token);
+		Long uso = usos.get(index);
+		--uso;
+		if(uso == 0) {
+			tokens.remove(index);
+			usos.remove(index);
+		} else {
+			usos.set(index, uso);
+		}
+	}
 }
