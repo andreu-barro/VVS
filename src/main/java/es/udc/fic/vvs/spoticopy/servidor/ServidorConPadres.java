@@ -16,12 +16,12 @@ public class ServidorConPadres extends GenericServidor implements Servidor {
 		this.padre = padre;
 	}
 
-	public List<Contenido> buscar(String subcadena, String token) {
+	public List<Contenido> buscar(String subcadena, String tok) {
 		List<Contenido> resultado = new ArrayList<Contenido>();
 		boolean hay_token = false;
 		
-		if(token != null) {
-			if(tokens.contains(token)) {
+		if(tok != null) {
+			if(token.contains(tok)) {
 				hay_token = true;
 			}
 		}
@@ -51,7 +51,7 @@ public class ServidorConPadres extends GenericServidor implements Servidor {
 		
 		// Usamos al padre si el contenido está vacío
 		if(resultado.isEmpty()) {
-			resultado = padre.buscar(subcadena, token);
+			resultado = padre.buscar(subcadena, tok);
 		}
 		
 		return resultado;

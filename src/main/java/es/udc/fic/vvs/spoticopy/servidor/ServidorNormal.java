@@ -12,12 +12,12 @@ public class ServidorNormal extends GenericServidor implements Servidor {
 		super(nombre, admin_token, contenidos);
 	}
 	
-	public List<Contenido> buscar(String subcadena, String token) {
+	public List<Contenido> buscar(String subcadena, String tok) {
 		List<Contenido> resultado = new ArrayList<Contenido>();
 		boolean hay_token = false;
 		
 		if(token != null) {
-			if(tokens.contains(token)) {
+			if(token.contains(tok)) {
 				hay_token = true;
 			}
 		}
