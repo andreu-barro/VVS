@@ -6,6 +6,9 @@ import java.util.List;
 import es.udc.fic.vvs.spoticopy.contenido.Anuncio;
 import es.udc.fic.vvs.spoticopy.contenido.Contenido;
 
+/** El servidor normal simplemente implementa la busqueda ademas de heredar
+ *  de GenericServidor.
+ */
 public class ServidorNormal extends GenericServidor implements Servidor {
 	
 	public ServidorNormal(String nombre, List<Contenido> contenidos) {

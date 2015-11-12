@@ -6,6 +6,14 @@ import java.util.List;
 import es.udc.fic.vvs.spoticopy.contenido.Anuncio;
 import es.udc.fic.vvs.spoticopy.contenido.Contenido;
 
+/** La peculiaridad de un ServidorConPadres es que, de no poder devolver
+ *  contenidos que cumplan el criterio de busqueda, solicita los contenidos
+ *  de otro servidor, llamado padre, y devuelve lo que el le proporcione.
+ *  Cualquier servidor puede ser el padre, no necesariamente otro Servidor
+ *  ConPadres (aunque seria posible montarse arboles, listas o mallas de
+ *  Servidores). OJO, la implementacion no contempla el caso de un anillo
+ *  de servidores, intentarlo creara un bucle infinito.
+ */
 public class ServidorConPadres extends GenericServidor implements Servidor {
 
 	private Servidor padre;

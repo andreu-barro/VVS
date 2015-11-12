@@ -17,7 +17,7 @@ public class ServidorConPadresTest {
 	@Test
 	public void buscarTest() {
 		List<Contenido> listaContenidos = new ArrayList<Contenido>();
-		Cancion cancion = new Cancion("cancion1",5);
+		Cancion cancion = new Cancion("cancion1", 5);
 		listaContenidos.add(cancion);
 		
 		// Servidor Padre

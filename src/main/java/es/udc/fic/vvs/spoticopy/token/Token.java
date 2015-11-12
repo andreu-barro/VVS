@@ -6,6 +6,13 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Random;
 
+/** Una clase token reune todos los tokens generados por todos los servidores.
+ *  Un token es una cadena que, de usarse al realizar una busqueda en un servidor,
+ *  impide la introduccion de anuncios en el resultado, un numero limitado de veces.
+ *  Puede asignarse una instancia de Token a varios servidores, haciendo que los
+ *  tokens generados en cualquier servidor sea usable por el resto, pero NO se puede
+ *  instanciar varios token para que sean exclusivos los unos de los otros. 
+ */
 public class Token {
 
 	private final static Long MAX_USES = 10L;

@@ -3,51 +3,33 @@ package es.udc.fic.vvs.spoticopy.contenido;
 import java.util.ArrayList;
 import java.util.List;
 
-//Esta clase implementa las funciones de la interfaz contenido 
+/** Contenido con titulo y duracion
+ */
 public class Cancion implements Contenido {
-
-
 
 	private String titulo;
 	private int duracion;
 
-
-
-	//Contructor vacio
-	public Cancion() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	
-	//Constructor del contenido Cancion
 	public Cancion(String titulo, int duracion)
 	{
 		this.titulo = titulo;
 		this.duracion = duracion;
 	}
-	
-	//Permite modificar anadir titulo
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
-	}
 
-	//Permite anadir duracion
-	public void setDuracion(int duracion) {
-		this.duracion = duracion;
-	}
 	//Obtenemos el titulo de la cancion
 	public String obtenerTitulo() {
-		// TODO Auto-generated method stub
 		return this.titulo;
 	}
 
-	//Obtenemos la duracion de la cacion
+	//Obtenemos la duracion de la cancion
 	public int obtenerDuracion() {
-		// TODO Auto-generated method stub
 		return this.duracion;
 	}
 
-	//Obtenemos la lista de reproduccion de canciones
+	/** Una cancion se devuelve a si mismo dentro de una lista.
+	 * 
+	 *  @return Una lista de contenidos con el anuncio dentro
+	 */
 	public List<Contenido> obtenerListaReproduccion() {
 		
 		List<Contenido> contenido = new ArrayList<Contenido>();
@@ -55,25 +37,36 @@ public class Cancion implements Contenido {
 		return contenido;
 	}
 
-	//Buscamos si la subcadena la contiene el titutlo, si es asi devolvemos la cancion
-	//Sino, devolvemos vacio
+	/** Si la subcadena que le pasamos está contenida en el titulo de la cancion,
+	 *  lo devolvemos. Sino devolvemos una lista vacía.
+	 *  
+	 *  @param subcadena la subcadena a buscar
+	 *  @return la cancion, si contiene la subcadena en su titulo. Lista vacia
+	 *  en caso contrario.
+	 */
 	public List<Contenido> buscar(String subcadena) {
 		List<Contenido> contenido = new ArrayList<Contenido>();
-		//contenido.
-		if(this.titulo.contains(subcadena))
-		{
+		if(this.titulo.contains(subcadena)) {
 			contenido.add(this);
 		}
 		return contenido;
-		}
+	}
 
-	//El contenido cancion no implementa esta funcion
+	/** Cancion no hace uso de esta funcion. De llamarse no hara absolutamente
+	 *  nada.
+	 * 
+	 *  @return la nada hecha codigo
+	 */
 	public void agregar(Contenido contenido, Contenido predecesor) {
 		return;
 		
 	}
 
-	//El contenido cancion no implementa esta funcion
+	/** Cancion no hace uso de esta funcion. De llamarse no hara absolutamente
+	 *  nada.
+	 * 
+	 *  @return la nada hecha codigo
+	 */
 	public void eliminar(Contenido contenido) {
 		return;
 	}

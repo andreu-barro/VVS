@@ -6,26 +6,48 @@ import es.udc.fic.vvs.spoticopy.contenido.Contenido;
 
 public interface Servidor {
 
-	// Devuelve el nombre con el que identificar al servidor
+	/** Devuelve el nombre con el que identificar al servidor
+	 * 
+	 *  @return el nombre del servidor
+	 */
 	public String obtenerNombre();
 	
-	// Genera un token para obtener contenidos del servidor
-	// libres de anuncios. Tiene un número limitado de usos.
+	/** Genera un token para obtener contenidos del servidor libres de
+	 *  anuncios. Tiene un número limitado de usos.
+	 *  
+	 *  @return el token generado
+	 */
 	public String alta();
 	
-	// Caduca directamente un token. Es aconsejable usarlo si se tiene la
-	// certeza de que no se necesita usar más.
+	/** Elimina un token pregenerado. ESTO LO HARA AUNQUE LE QUEDEN USOS
+	 *  RESTANTES, SOLO USAR SI ES SEGURO QUE NO SE QUIERE SEGUIR USANDO
+	 *
+	 * @param token El token a dar de baja
+	 */
 	public void baja(String token);
 	
-	// Añade contenidos al servidor (USAR TOKEN ESPECIAL DE ADMINISTRADOR)
+	/** Agrega el contenido a la lista del servidor. Esta operacion solo
+	 *  es posible mediante el uso de un token especial de administracion.
+	 * 
+	 * @param contenido el contenido a agregar
+	 * @param token el token de administrador
+	 */
 	public void agregar(Contenido contenido, String token);
 	
-	// Elimina contenidos al servidor (USAR TOKEN ESPECIAL DE ADMINISTRADOR)
+	/** Elimina el contenido de la lista del servidor. Esta operacion solo
+	 *  es posible mediante el uso de un token especial de administracion.
+	 * 
+	 * @param contenido el contenido a eliminar
+	 * @param token el token de administrador
+	 */
 	public void eliminar(Contenido contenido, String token);
 	
-	// Obtiene los contenidos del servidor cuyo nombre contiene la subcadena
-	// dada. Nótese que un token generado tiene un número de usos limitado tras
-	// el cual caducará. Un token caducado no devolverá nada. Si no se pasa
-	// token, los resultados devueltos contendrán anuncios.
+	/** Devuelve los contenidos que tengan la subcadena en su titulo.
+	 * 
+	 * @param subcadena la cadena a buscar en el titulo
+	 * @param token el token del usuario. Un token incorrecto o nulo anhadira
+	 * anuncions por el medio de la lista resultado de la busqueda
+	 * @return la lista de contenidos que contienen la subcadena en el titulo
+	 */
 	public List<Contenido> buscar(String subcadena, String token);
 }

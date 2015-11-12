@@ -17,7 +17,7 @@ public class ServidorNormalTest {
 	@Test
 	public void buscarTest() {
 		List<Contenido> listaContenidos = new ArrayList<Contenido>();
-		Cancion cancion = new Cancion("cancion1",5);
+		Cancion cancion = new Cancion("cancion1", 5);
 		listaContenidos.add(new Anuncio());
 		listaContenidos.add(cancion);
 		

@@ -13,7 +13,7 @@ import es.udc.fic.vvs.spoticopy.contenido.Contenido;
 public class EmisoraTest {
 
 	
-	Emisora emisora = new Emisora("Andreu", 5, null);
+	Emisora emisora = new Emisora("Andreu", null);
 
 	@Test
 	public void obtenerTituloTest() {
@@ -22,7 +22,7 @@ public class EmisoraTest {
 	
 	@Test
 	public void obtenerDuracionTest() {
-		assertTrue(Integer.compare(emisora.obtenerDuracion(),5)==0);
+		assertTrue(emisora.obtenerDuracion() == 0);
 	}
 
 	@Test
