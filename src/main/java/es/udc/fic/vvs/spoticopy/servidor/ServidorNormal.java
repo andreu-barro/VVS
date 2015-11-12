@@ -5,14 +5,15 @@ import java.util.List;
 
 import es.udc.fic.vvs.spoticopy.contenido.Anuncio;
 import es.udc.fic.vvs.spoticopy.contenido.Contenido;
+import es.udc.fic.vvs.spoticopy.token.Token;
 
 /** El servidor normal simplemente implementa la busqueda ademas de heredar
  *  de GenericServidor.
  */
 public class ServidorNormal extends GenericServidor implements Servidor {
 	
-	public ServidorNormal(String nombre, List<Contenido> contenidos) {
-		super(nombre, contenidos);
+	public ServidorNormal(String nombre, List<Contenido> contenidos, Token token) {
+		super(nombre, contenidos, token);
 	}
 	
 	public List<Contenido> buscar(String subcadena, String tok) {

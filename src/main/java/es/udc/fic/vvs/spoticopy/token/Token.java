@@ -19,11 +19,10 @@ public class Token {
 	
 	private static List<String> tokens;
 	private static List<Long> usos;
-	private static Token instance = null;
 	private static String admin_token;
 	private static Random r;
 	
-	private Token(String admin_t) {
+	public Token(String admin_t) {
 		tokens = new ArrayList<String>();
 		usos = new ArrayList<Long>();
 		admin_token = admin_t;
@@ -31,15 +30,7 @@ public class Token {
 		// tokens predecible entre ejecuciones de la aplicación
 		r = new Random(Calendar.getInstance().getTimeInMillis());
 	}
-	
-	// Singleton
-	public static Token getInstance() {
-		if(instance == null) {
-			instance = new Token("ADMINISTRADOR");
-		}
-		return instance;
-	}
-	
+
 	public String alta() {
 		String token = null;
 		

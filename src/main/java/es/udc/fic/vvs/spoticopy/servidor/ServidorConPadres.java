@@ -5,6 +5,7 @@ import java.util.List;
 
 import es.udc.fic.vvs.spoticopy.contenido.Anuncio;
 import es.udc.fic.vvs.spoticopy.contenido.Contenido;
+import es.udc.fic.vvs.spoticopy.token.Token;
 
 /** La peculiaridad de un ServidorConPadres es que, de no poder devolver
  *  contenidos que cumplan el criterio de busqueda, solicita los contenidos
@@ -18,8 +19,8 @@ public class ServidorConPadres extends GenericServidor implements Servidor {
 
 	private Servidor padre;
 	
-	public ServidorConPadres(String nombre, Servidor padre, List<Contenido> contenidos) {
-		super(nombre, contenidos);
+	public ServidorConPadres(String nombre, Servidor padre, List<Contenido> contenidos, Token token) {
+		super(nombre, contenidos, token);
 		this.padre = padre;
 	}
 

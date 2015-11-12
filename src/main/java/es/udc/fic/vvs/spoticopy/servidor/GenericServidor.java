@@ -15,15 +15,18 @@ public abstract class GenericServidor implements Servidor {
 	protected String nombre;
 	protected List<Contenido> contenidos;
 	/** Lista de tokens compartida por todos los servidores */
-	protected Token token;
+	protected Token token = null;
 	
-	public GenericServidor(String nombre, List<Contenido> contenidos) {
+	public GenericServidor(String nombre, List<Contenido> contenidos, Token token) {
 		this.nombre = nombre;
 		this.contenidos = contenidos;
 		if(contenidos == null) {
 			this.contenidos = new ArrayList<Contenido>();
 		}
-		this.token = Token.getInstance();
+		if(token != null) {
+			this.token = token;
+		}
+		
 	}
 
 	public String obtenerNombre() {
