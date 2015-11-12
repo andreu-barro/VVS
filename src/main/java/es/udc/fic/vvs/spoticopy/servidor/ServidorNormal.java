@@ -10,7 +10,7 @@ import es.udc.fic.vvs.spoticopy.token.Token;
 /** El servidor normal simplemente implementa la busqueda ademas de heredar
  *  de GenericServidor.
  */
-public class ServidorNormal extends GenericServidor implements Servidor {
+public class ServidorNormal extends ServidorGenerico implements Servidor {
 	
 	public ServidorNormal(String nombre, List<Contenido> contenidos, Token token) {
 		super(nombre, contenidos, token);

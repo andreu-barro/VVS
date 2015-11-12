@@ -10,14 +10,14 @@ import es.udc.fic.vvs.spoticopy.token.Token;
  * Las particularidades se implementan en distintas clases que
  * heredaran de GenericServidor.
  */
-public abstract class GenericServidor implements Servidor {
+public abstract class ServidorGenerico implements Servidor {
 
 	protected String nombre;
 	protected List<Contenido> contenidos;
 	/** Lista de tokens compartida por todos los servidores */
 	protected Token token = null;
 	
-	public GenericServidor(String nombre, List<Contenido> contenidos, Token token) {
+	public ServidorGenerico(String nombre, List<Contenido> contenidos, Token token) {
 		this.nombre = nombre;
 		this.contenidos = contenidos;
 		if(contenidos == null) {
