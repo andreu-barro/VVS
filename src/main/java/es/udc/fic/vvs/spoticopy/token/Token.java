@@ -19,13 +19,13 @@ public class Token {
 	
 	private static List<String> tokens;
 	private static List<Long> usos;
-	private static String admin_token;
+	private static String adminToken;
 	private static Random r;
 	
 	public Token(String admin_t) {
 		tokens = new ArrayList<String>();
 		usos = new ArrayList<Long>();
-		admin_token = admin_t;
+		adminToken = admin_t;
 		// Introducir una semilla concreta si se quiere una generación de
 		// tokens predecible entre ejecuciones de la aplicación
 		r = new Random(Calendar.getInstance().getTimeInMillis());
@@ -46,7 +46,7 @@ public class Token {
 			// Ha generado un token que ya existe
 			// o el token de administración
 			if(tokens.contains(token)
-			|| token.contentEquals(admin_token)) {
+			|| token.contentEquals(adminToken)) {
 				token = null;
 			} else {
 				tokens.add(token);
@@ -63,7 +63,7 @@ public class Token {
 	}
 	
 	public boolean isAdminToken(String token) {
-		return admin_token.contentEquals(token);
+		return adminToken.contentEquals(token);
 	}
 	
 	public boolean contains(String token) {
