@@ -31,4 +31,23 @@ public class ServidorConPadresTest {
 		assertEquals(servidorConPadres.buscar("cancion", "ADMINISTRADOR"),listaContenidos);
 	}
 	
+	@Test
+	public void buscarTest2() {
+		List<Contenido> listaContenidos = new ArrayList<Contenido>();
+		Cancion cancion = new Cancion("cancion1", 5);
+		listaContenidos.add(cancion);
+		Token token = new Token("ADMINISTRADOR");
+		
+		List<Contenido> listaContenidos2 = new ArrayList<Contenido>();
+		Cancion c = new Cancion ("coco",2);
+		listaContenidos2.add(c);
+		// Servidor Padre
+		ServidorNormal servidorPadre = new ServidorNormal("SP", listaContenidos, token);
+		
+		// Servidor con Padre
+		ServidorConPadres servidorConPadres = new ServidorConPadres("SCP", servidorPadre, listaContenidos2, token);
+		
+		assertEquals(servidorConPadres.buscar("cancion", "ADMINISTRADOR"),listaContenidos);
+	}
+	
 }
