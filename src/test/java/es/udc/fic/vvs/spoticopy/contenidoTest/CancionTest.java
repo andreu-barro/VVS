@@ -9,6 +9,7 @@ import org.junit.Test;
 
 import es.udc.fic.vvs.spoticopy.contenido.Cancion;
 import es.udc.fic.vvs.spoticopy.contenido.Contenido;
+import es.udc.fic.vvs.spoticopy.contenido.Emisora;
 
 public class CancionTest {
 
@@ -31,6 +32,7 @@ public class CancionTest {
 		listaContenidos.add(cancion);
 		assertEquals(cancion.buscar("dreu"),listaContenidos);
 	}
+	
 	
 	
 }
