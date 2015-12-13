@@ -37,7 +37,12 @@
                                 <format>xml</format>
                           </formats>
                     </configuration>            
-                  </plugin>    
+                  </plugin> 
+                    <plugin>
+                        <groupId>org.pitest</groupId>
+                        <artifactId>pitest-maven</artifactId>
+                        <version>0.25</version>
+                    </plugin>   
           </plugins>
     </build>
     
