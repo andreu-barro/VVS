@@ -1,0 +1,1113 @@
+<html>
+<head>
+<style type='text/css'>
+html, body, div, span, p, blockquote, pre {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+
+body{
+	line-height: 1;
+	color: black;
+	background: white;
+	margin-left: 20px;
+}
+
+.src { 
+border: 1px solid #dddddd;
+padding-top: 10px;
+padding-right: 5px;
+padding-left: 5px;
+}
+
+
+.covered {background-color: #ddffdd}
+.uncovered {background-color: #ffdddd}
+.killed {background-color: #aaffaa}
+.survived {background-color: #ffaaaa}
+.uncertain {background-color: #dde7ef}
+.run_error {background-color: #dde7ef}
+.na {background-color: #eeeeee}
+.timed_out {background-color: #dde7ef}
+.non_viable {background-color: #aaffaa}
+.memory_error {background-color: #dde7ef}
+.not_started {background-color: #dde7ef; color : red}
+.no_coverage {background-color: #ffaaaa}
+
+</style>
+
+</head>
+<body>
+
+
+
+
+<h1>ServidorConPadres.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_1'/>
+1
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_1'></a>
+</td>
+<td class=''><pre><span  class=''>package es.udc.fic.vvs.spoticopy.servidor;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_2'/>
+2
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_2'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_3'/>
+3
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_3'></a>
+</td>
+<td class=''><pre><span  class=''>import java.util.ArrayList;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_4'/>
+4
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_4'></a>
+</td>
+<td class=''><pre><span  class=''>import java.util.List;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_5'/>
+5
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_5'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_6'/>
+6
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_6'></a>
+</td>
+<td class=''><pre><span  class=''>import es.udc.fic.vvs.spoticopy.contenido.Anuncio;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_7'/>
+7
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_7'></a>
+</td>
+<td class=''><pre><span  class=''>import es.udc.fic.vvs.spoticopy.contenido.Contenido;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_8'/>
+8
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_8'></a>
+</td>
+<td class=''><pre><span  class=''>import es.udc.fic.vvs.spoticopy.token.Token;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_9'/>
+9
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_9'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_10'/>
+10
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_10'></a>
+</td>
+<td class=''><pre><span  class=''>/** La peculiaridad de un ServidorConPadres es que, de no poder devolver</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_11'/>
+11
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_11'></a>
+</td>
+<td class=''><pre><span  class=''> *  contenidos que cumplan el criterio de busqueda, solicita los contenidos</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_12'/>
+12
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_12'></a>
+</td>
+<td class=''><pre><span  class=''> *  de otro servidor, llamado padre, y devuelve lo que el le proporcione.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_13'/>
+13
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_13'></a>
+</td>
+<td class=''><pre><span  class=''> *  Cualquier servidor puede ser el padre, no necesariamente otro Servidor</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_14'/>
+14
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_14'></a>
+</td>
+<td class=''><pre><span  class=''> *  ConPadres (aunque seria posible montarse arboles, listas o mallas de</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_15'/>
+15
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_15'></a>
+</td>
+<td class=''><pre><span  class=''> *  Servidores). OJO, la implementacion no contempla el caso de un anillo</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_16'/>
+16
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_16'></a>
+</td>
+<td class=''><pre><span  class=''> *  de servidores, intentarlo creara un bucle infinito.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_17'/>
+17
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_17'></a>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_18'/>
+18
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_18'></a>
+</td>
+<td class=''><pre><span  class=''>public class ServidorConPadres extends ServidorGenerico implements Servidor {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_19'/>
+19
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_19'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_20'/>
+20
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_20'></a>
+</td>
+<td class=''><pre><span  class=''>&#9;private Servidor padre;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_21'/>
+21
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_21'></a>
+</td>
+<td class=''><pre><span  class=''>&#9;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_22'/>
+22
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_22'></a>
+</td>
+<td class=''><pre><span  class=''>&#9;public ServidorConPadres(String nombre, Servidor padre, List&#60;Contenido&#62; contenidos, Token token) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_23'/>
+23
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_23'></a>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;super(nombre, contenidos, token);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_24'/>
+24
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_24'></a>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;this.padre = padre;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_25'/>
+25
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_25'></a>
+</td>
+<td class='covered'><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_26'/>
+26
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_26'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_27'/>
+27
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_27'></a>
+</td>
+<td class=''><pre><span  class=''>&#9;public List&#60;Contenido&#62; buscar(String subcadena, String tok) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_28'/>
+28
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_28'></a>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;List&#60;Contenido&#62; resultado = new ArrayList&#60;Contenido&#62;();</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_29'/>
+29
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_29'></a>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;boolean hay_token = false;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_30'/>
+30
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_30'></a>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_31'/>
+31
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_31'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;if(tok != null) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_32'/>
+32
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_32'>2</a>
+</td>
+<td class='covered'><pre><span  class='survived'>&#9;&#9;&#9;if(token.contains(tok) || token.isAdminToken(tok)) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_33'/>
+33
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_33'></a>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;&#9;&#9;hay_token = true;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_34'/>
+34
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_34'></a>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;&#9;}</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_35'/>
+35
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_35'></a>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;}</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_36'/>
+36
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_36'></a>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_37'/>
+37
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_37'></a>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;// Lista de contenidos que contiene la subcadena</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_38'/>
+38
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_38'></a>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;List&#60;Contenido&#62; busqueda = new ArrayList&#60;Contenido&#62;();</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_39'/>
+39
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_39'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;for(Contenido i : contenidos) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_40'/>
+40
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_40'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;&#9;if(i.obtenerTitulo().contains(subcadena)) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_41'/>
+41
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_41'></a>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;&#9;&#9;busqueda.add(i);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_42'/>
+42
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_42'></a>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;&#9;}</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_43'/>
+43
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_43'></a>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;}</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_44'/>
+44
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_44'></a>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_45'/>
+45
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_45'></a>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;// Env&#195;&#173;o final</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_46'/>
+46
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_46'></a>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;int intervalo = 0;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_47'/>
+47
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_47'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;for(Contenido i : busqueda) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_48'/>
+48
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_48'>2</a>
+</td>
+<td class='covered'><pre><span  class='survived'>&#9;&#9;&#9;if(!hay_token &#38;&#38; intervalo == 0) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_49'/>
+49
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_49'></a>
+</td>
+<td class='uncovered'><pre><span  class=''>&#9;&#9;&#9;&#9;resultado.add(new Anuncio());</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_50'/>
+50
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_50'></a>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;&#9;}</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_51'/>
+51
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_51'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;&#9;if(i.obtenerTitulo().contains(subcadena)) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_52'/>
+52
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_52'></a>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;&#9;&#9;resultado.add(i);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_53'/>
+53
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_53'></a>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;&#9;}&#9;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_54'/>
+54
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_54'>1</a>
+</td>
+<td class='covered'><pre><span  class='survived'>&#9;&#9;&#9;intervalo++;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_55'/>
+55
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_55'>2</a>
+</td>
+<td class='covered'><pre><span  class='survived'>&#9;&#9;&#9;if(intervalo &#62;= 3) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_56'/>
+56
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_56'></a>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;&#9;&#9;intervalo = 0;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_57'/>
+57
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_57'></a>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;&#9;}</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_58'/>
+58
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_58'></a>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;}</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_59'/>
+59
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_59'></a>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_60'/>
+60
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_60'></a>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;// Reducimos un uso al token</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_61'/>
+61
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_61'>2</a>
+</td>
+<td class='covered'><pre><span  class='survived'>&#9;&#9;if(hay_token &#38;&#38; !token.isAdminToken(tok)) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_62'/>
+62
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_62'>1</a>
+</td>
+<td class='uncovered'><pre><span  class='survived'>&#9;&#9;&#9;token.usarToken(tok);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_63'/>
+63
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_63'></a>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;}</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_64'/>
+64
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_64'></a>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_65'/>
+65
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_65'></a>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;// Usamos al padre si el contenido est&#195;&#161; vac&#195;&#173;o</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_66'/>
+66
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_66'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;if(resultado.isEmpty()) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_67'/>
+67
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_67'></a>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;&#9;resultado = padre.buscar(subcadena, tok);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_68'/>
+68
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_68'></a>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;}</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_69'/>
+69
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_69'></a>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_70'/>
+70
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_70'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;return resultado;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_71'/>
+71
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_71'></a>
+</td>
+<td class=''><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_72'/>
+72
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_72'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@56febdc_73'/>
+73
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@56febdc_73'></a>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.SourceFile@56febdc_31'>31</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.SourceFile@56febdc_31'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> es.udc.fic.vvs.spoticopy.servidorTest.ServidorConPadresTest.buscarTest3(es.udc.fic.vvs.spoticopy.servidorTest.ServidorConPadresTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.SourceFile@56febdc_32'>32</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.SourceFile@56febdc_32'/> 
+
+<p class='SURVIVED'>negated conditional : SURVIVED</p> <p class='KILLED'>negated conditional : KILLED -> es.udc.fic.vvs.spoticopy.servidorTest.ServidorConPadresTest.buscarTest3(es.udc.fic.vvs.spoticopy.servidorTest.ServidorConPadresTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.SourceFile@56febdc_39'>39</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.SourceFile@56febdc_39'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> es.udc.fic.vvs.spoticopy.servidorTest.ServidorConPadresTest.buscarTest3(es.udc.fic.vvs.spoticopy.servidorTest.ServidorConPadresTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.SourceFile@56febdc_40'>40</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.SourceFile@56febdc_40'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> es.udc.fic.vvs.spoticopy.servidorTest.ServidorConPadresTest.buscarTest3(es.udc.fic.vvs.spoticopy.servidorTest.ServidorConPadresTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.SourceFile@56febdc_47'>47</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.SourceFile@56febdc_47'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> es.udc.fic.vvs.spoticopy.servidorTest.ServidorConPadresTest.buscarTest2(es.udc.fic.vvs.spoticopy.servidorTest.ServidorConPadresTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.SourceFile@56febdc_48'>48</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.SourceFile@56febdc_48'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> es.udc.fic.vvs.spoticopy.servidorTest.ServidorConPadresTest.buscarTest3(es.udc.fic.vvs.spoticopy.servidorTest.ServidorConPadresTest)</p> <p class='SURVIVED'>negated conditional : SURVIVED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.SourceFile@56febdc_51'>51</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.SourceFile@56febdc_51'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> es.udc.fic.vvs.spoticopy.servidorTest.ServidorConPadresTest.buscarTest3(es.udc.fic.vvs.spoticopy.servidorTest.ServidorConPadresTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.SourceFile@56febdc_54'>54</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.SourceFile@56febdc_54'/> 
+
+<p class='SURVIVED'>Changed increment from 1 to -1 : SURVIVED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.SourceFile@56febdc_55'>55</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.SourceFile@56febdc_55'/> 
+
+<p class='SURVIVED'>negated conditional : SURVIVED</p> <p class='SURVIVED'>changed conditional boundary : SURVIVED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.SourceFile@56febdc_61'>61</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.SourceFile@56febdc_61'/> 
+
+<p class='SURVIVED'>negated conditional : SURVIVED</p> <p class='KILLED'>negated conditional : KILLED -> es.udc.fic.vvs.spoticopy.servidorTest.ServidorConPadresTest.buscarTest2(es.udc.fic.vvs.spoticopy.servidorTest.ServidorConPadresTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.SourceFile@56febdc_62'>62</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.SourceFile@56febdc_62'/> 
+
+<p class='NO_COVERAGE'>removed call to es/udc/fic/vvs/spoticopy/token/Token::usarToken : NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.SourceFile@56febdc_66'>66</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.SourceFile@56febdc_66'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> es.udc.fic.vvs.spoticopy.servidorTest.ServidorConPadresTest.buscarTest2(es.udc.fic.vvs.spoticopy.servidorTest.ServidorConPadresTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.SourceFile@56febdc_70'>70</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.SourceFile@56febdc_70'/> 
+
+<p class='KILLED'>mutated return of Object value for es/udc/fic/vvs/spoticopy/servidor/ServidorConPadres::buscar to ( if (x != null) null else throw new RuntimeException ) : KILLED -> es.udc.fic.vvs.spoticopy.servidorTest.ServidorConPadresTest.buscarTest2(es.udc.fic.vvs.spoticopy.servidorTest.ServidorConPadresTest)</p> 
+</td>
+</tr>
+
+</table>
+
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+
+<li class='mutator'>MATH_MUTATOR</li>
+
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>es.udc.fic.vvs.spoticopy.servidorTest.ServidorConPadresTest.buscarTest3(es.udc.fic.vvs.spoticopy.servidorTest.ServidorConPadresTest) (13 ms)</li><li>es.udc.fic.vvs.spoticopy.servidorTest.ServidorConPadresTest.buscarTest2(es.udc.fic.vvs.spoticopy.servidorTest.ServidorConPadresTest) (2 ms)</li><li>es.udc.fic.vvs.spoticopy.servidorTest.ServidorConPadresTest.buscarTest(es.udc.fic.vvs.spoticopy.servidorTest.ServidorConPadresTest) (14 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by PIT <a href='http://pitest.org'>mutation testing for java</a>
+
+</body>
+</html>

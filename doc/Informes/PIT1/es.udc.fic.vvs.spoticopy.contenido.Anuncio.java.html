@@ -1,0 +1,1321 @@
+<html>
+<head>
+<style type='text/css'>
+html, body, div, span, p, blockquote, pre {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+
+body{
+	line-height: 1;
+	color: black;
+	background: white;
+	margin-left: 20px;
+}
+
+.src { 
+border: 1px solid #dddddd;
+padding-top: 10px;
+padding-right: 5px;
+padding-left: 5px;
+}
+
+
+.covered {background-color: #ddffdd}
+.uncovered {background-color: #ffdddd}
+.killed {background-color: #aaffaa}
+.survived {background-color: #ffaaaa}
+.uncertain {background-color: #dde7ef}
+.run_error {background-color: #dde7ef}
+.na {background-color: #eeeeee}
+.timed_out {background-color: #dde7ef}
+.non_viable {background-color: #aaffaa}
+.memory_error {background-color: #dde7ef}
+.not_started {background-color: #dde7ef; color : red}
+.no_coverage {background-color: #ffaaaa}
+
+</style>
+
+</head>
+<body>
+
+
+
+
+<h1>Anuncio.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_1'/>
+1
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_1'></a>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_2'/>
+2
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_2'></a>
+</td>
+<td class=''><pre><span  class=''> * @author Sr. Javi</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_3'/>
+3
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_3'></a>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_4'/>
+4
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_4'></a>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_5'/>
+5
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_5'></a>
+</td>
+<td class=''><pre><span  class=''>package es.udc.fic.vvs.spoticopy.contenido;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_6'/>
+6
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_6'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_7'/>
+7
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_7'></a>
+</td>
+<td class=''><pre><span  class=''>import java.util.ArrayList;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_8'/>
+8
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_8'></a>
+</td>
+<td class=''><pre><span  class=''>import java.util.List;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_9'/>
+9
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_9'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_10'/>
+10
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_10'></a>
+</td>
+<td class=''><pre><span  class=''>/** Un anuncio es un contenido que siempre tiene por titulo &#34;PUBLICIDAD&#34; y de</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_11'/>
+11
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_11'></a>
+</td>
+<td class=''><pre><span  class=''> *  duracion 5. Redefine el equals, de tal modo que todo anuncio se considera</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_12'/>
+12
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_12'></a>
+</td>
+<td class=''><pre><span  class=''> *  igual a otro anuncio.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_13'/>
+13
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_13'></a>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_14'/>
+14
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_14'></a>
+</td>
+<td class='covered'><pre><span  class=''>public class Anuncio implements Contenido {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_15'/>
+15
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_15'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_16'/>
+16
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_16'></a>
+</td>
+<td class=''><pre><span  class=''>&#9;// Anuncio tendra una duracion y un titulo fijos</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_17'/>
+17
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_17'></a>
+</td>
+<td class='covered'><pre><span  class=''>&#9;private String titulo = &#34;PUBLICIDAD&#34;;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_18'/>
+18
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_18'></a>
+</td>
+<td class='covered'><pre><span  class=''>&#9;private int duracion = 5;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_19'/>
+19
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_19'></a>
+</td>
+<td class=''><pre><span  class=''>&#9;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_20'/>
+20
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_20'></a>
+</td>
+<td class=''><pre><span  class=''>&#9;/** Obtiene el titulo del anuncio (un anuncio siempre tiene &#34;PUBLICIDAD&#34;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_21'/>
+21
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_21'></a>
+</td>
+<td class=''><pre><span  class=''>&#9; *  por nombre).</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_22'/>
+22
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_22'></a>
+</td>
+<td class=''><pre><span  class=''>&#9; *  </span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_23'/>
+23
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_23'></a>
+</td>
+<td class=''><pre><span  class=''>&#9; *  @return el titulo del anuncio, &#34;PUBLICIDAD&#34;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_24'/>
+24
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_24'></a>
+</td>
+<td class=''><pre><span  class=''>&#9; */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_25'/>
+25
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_25'></a>
+</td>
+<td class=''><pre><span  class=''>&#9;public String obtenerTitulo() {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_26'/>
+26
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_26'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;return titulo;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_27'/>
+27
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_27'></a>
+</td>
+<td class=''><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_28'/>
+28
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_28'></a>
+</td>
+<td class=''><pre><span  class=''>&#9;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_29'/>
+29
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_29'></a>
+</td>
+<td class=''><pre><span  class=''>&#9;/** Obtiene la duracion del anuncio (un anuncio siempre dura 5 segundos).</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_30'/>
+30
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_30'></a>
+</td>
+<td class=''><pre><span  class=''>&#9; * </span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_31'/>
+31
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_31'></a>
+</td>
+<td class=''><pre><span  class=''>&#9; *  @return la duracion del anuncio, 5</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_32'/>
+32
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_32'></a>
+</td>
+<td class=''><pre><span  class=''>&#9; */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_33'/>
+33
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_33'></a>
+</td>
+<td class=''><pre><span  class=''>&#9;public int obtenerDuracion() {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_34'/>
+34
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_34'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;return duracion;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_35'/>
+35
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_35'></a>
+</td>
+<td class=''><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_36'/>
+36
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_36'></a>
+</td>
+<td class=''><pre><span  class=''>&#9;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_37'/>
+37
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_37'></a>
+</td>
+<td class=''><pre><span  class=''>&#9;/** Un anuncio se devuelve a si mismo dentro de una lista.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_38'/>
+38
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_38'></a>
+</td>
+<td class=''><pre><span  class=''>&#9; * </span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_39'/>
+39
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_39'></a>
+</td>
+<td class=''><pre><span  class=''>&#9; *  @return Una lista de contenidos con el anuncio dentro</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_40'/>
+40
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_40'></a>
+</td>
+<td class=''><pre><span  class=''>&#9; */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_41'/>
+41
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_41'></a>
+</td>
+<td class=''><pre><span  class=''>&#9;public List&#60;Contenido&#62; obtenerListaReproduccion() {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_42'/>
+42
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_42'></a>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;List&#60;Contenido&#62; lista = new ArrayList&#60;Contenido&#62;();</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_43'/>
+43
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_43'></a>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;lista.add(this);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_44'/>
+44
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_44'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;return lista;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_45'/>
+45
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_45'></a>
+</td>
+<td class=''><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_46'/>
+46
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_46'></a>
+</td>
+<td class=''><pre><span  class=''>&#9;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_47'/>
+47
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_47'></a>
+</td>
+<td class=''><pre><span  class=''>&#9;/** Si la subcadena que le pasamos est&#195;&#161; contenida en el titulo del anuncio,</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_48'/>
+48
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_48'></a>
+</td>
+<td class=''><pre><span  class=''>&#9; *  lo devolvemos. Sino devolvemos una lista vac&#195;&#173;a.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_49'/>
+49
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_49'></a>
+</td>
+<td class=''><pre><span  class=''>&#9; *  </span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_50'/>
+50
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_50'></a>
+</td>
+<td class=''><pre><span  class=''>&#9; *  @param subcadena la subcadena a buscar</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_51'/>
+51
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_51'></a>
+</td>
+<td class=''><pre><span  class=''>&#9; *  @return la cancion, si contiene la subcadena en su titulo. Lista vacia</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_52'/>
+52
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_52'></a>
+</td>
+<td class=''><pre><span  class=''>&#9; *  en caso contrario.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_53'/>
+53
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_53'></a>
+</td>
+<td class=''><pre><span  class=''>&#9; */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_54'/>
+54
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_54'></a>
+</td>
+<td class=''><pre><span  class=''>&#9;public List&#60;Contenido&#62; buscar(String subcadena) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_55'/>
+55
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_55'></a>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;List&#60;Contenido&#62; lista = new ArrayList&#60;Contenido&#62;();</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_56'/>
+56
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_56'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;if (titulo.contains(subcadena)) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_57'/>
+57
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_57'></a>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;&#9;lista.add(this);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_58'/>
+58
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_58'></a>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;}</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_59'/>
+59
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_59'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;return lista;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_60'/>
+60
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_60'></a>
+</td>
+<td class=''><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_61'/>
+61
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_61'></a>
+</td>
+<td class=''><pre><span  class=''>&#9;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_62'/>
+62
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_62'></a>
+</td>
+<td class=''><pre><span  class=''>&#9;/** Anuncio no hace uso de esta funcion. De llamarse no hara absolutamente</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_63'/>
+63
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_63'></a>
+</td>
+<td class=''><pre><span  class=''>&#9; *  nada.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_64'/>
+64
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_64'></a>
+</td>
+<td class=''><pre><span  class=''>&#9; * </span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_65'/>
+65
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_65'></a>
+</td>
+<td class=''><pre><span  class=''>&#9; *  @return la nada hecha codigo</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_66'/>
+66
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_66'></a>
+</td>
+<td class=''><pre><span  class=''>&#9; */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_67'/>
+67
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_67'></a>
+</td>
+<td class=''><pre><span  class=''>&#9;public void agregar(Contenido contenido, Contenido predecesor) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_68'/>
+68
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_68'></a>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;return;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_69'/>
+69
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_69'></a>
+</td>
+<td class=''><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_70'/>
+70
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_70'></a>
+</td>
+<td class=''><pre><span  class=''>&#9;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_71'/>
+71
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_71'></a>
+</td>
+<td class=''><pre><span  class=''>&#9;/** Anuncio no hace uso de esta funcion. De llamarse no hara absolutamente</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_72'/>
+72
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_72'></a>
+</td>
+<td class=''><pre><span  class=''>&#9; *  nada.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_73'/>
+73
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_73'></a>
+</td>
+<td class=''><pre><span  class=''>&#9; * </span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_74'/>
+74
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_74'></a>
+</td>
+<td class=''><pre><span  class=''>&#9; *  @return la nada hecha codigo</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_75'/>
+75
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_75'></a>
+</td>
+<td class=''><pre><span  class=''>&#9; */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_76'/>
+76
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_76'></a>
+</td>
+<td class=''><pre><span  class=''>&#9;public void eliminar(Contenido contenido) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_77'/>
+77
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_77'></a>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;return;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_78'/>
+78
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_78'></a>
+</td>
+<td class=''><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_79'/>
+79
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_79'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_80'/>
+80
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_80'></a>
+</td>
+<td class=''><pre><span  class=''>&#9;/** Sobreescrito el equals de Anuncio, para que iguale segun su contenido.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_81'/>
+81
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_81'></a>
+</td>
+<td class=''><pre><span  class=''>&#9; * </span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_82'/>
+82
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_82'></a>
+</td>
+<td class=''><pre><span  class=''>&#9; *  @return Si los dos contenidos son anuncios</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_83'/>
+83
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_83'></a>
+</td>
+<td class=''><pre><span  class=''>&#9; */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_84'/>
+84
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_84'></a>
+</td>
+<td class=''><pre><span  class=''>&#9;@Override</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_85'/>
+85
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_85'></a>
+</td>
+<td class=''><pre><span  class=''>&#9;public boolean equals(Object obj) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_86'/>
+86
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_86'></a>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;Contenido objeto = (Anuncio) obj;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_87'/>
+87
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_87'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;if(titulo.contentEquals(objeto.obtenerTitulo())</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_88'/>
+88
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_88'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;&#38;&#38; duracion == objeto.obtenerDuracion()) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_89'/>
+89
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_89'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;&#9;return true;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_90'/>
+90
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_90'></a>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;}</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_91'/>
+91
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_91'></a>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_92'/>
+92
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_92'>1</a>
+</td>
+<td class='uncovered'><pre><span  class='survived'>&#9;&#9;return false;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_93'/>
+93
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_93'></a>
+</td>
+<td class=''><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.SourceFile@5488b5c5_94'/>
+94
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_94'></a>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.SourceFile@5488b5c5_26'>26</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_26'/> 
+
+<p class='KILLED'>mutated return of Object value for es/udc/fic/vvs/spoticopy/contenido/Anuncio::obtenerTitulo to ( if (x != null) null else throw new RuntimeException ) : KILLED -> es.udc.fic.vvs.spoticopy.servidorTest.ServidorNormalTest.buscarTest(es.udc.fic.vvs.spoticopy.servidorTest.ServidorNormalTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.SourceFile@5488b5c5_34'>34</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_34'/> 
+
+<p class='KILLED'>replaced return of integer sized value with (x == 0 ? 1 : 0) : KILLED -> es.udc.fic.vvs.spoticopy.servidorTest.ServidorNormalTest.buscarTest(es.udc.fic.vvs.spoticopy.servidorTest.ServidorNormalTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.SourceFile@5488b5c5_44'>44</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_44'/> 
+
+<p class='KILLED'>mutated return of Object value for es/udc/fic/vvs/spoticopy/contenido/Anuncio::obtenerListaReproduccion to ( if (x != null) null else throw new RuntimeException ) : KILLED -> es.udc.fic.vvs.spoticopy.contenidoTest.AnuncioTest.obtenerListaReproduccionTest(es.udc.fic.vvs.spoticopy.contenidoTest.AnuncioTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.SourceFile@5488b5c5_56'>56</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_56'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> es.udc.fic.vvs.spoticopy.contenidoTest.AnuncioTest.buscarTest(es.udc.fic.vvs.spoticopy.contenidoTest.AnuncioTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.SourceFile@5488b5c5_59'>59</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_59'/> 
+
+<p class='KILLED'>mutated return of Object value for es/udc/fic/vvs/spoticopy/contenido/Anuncio::buscar to ( if (x != null) null else throw new RuntimeException ) : KILLED -> es.udc.fic.vvs.spoticopy.contenidoTest.AnuncioTest.buscarTest(es.udc.fic.vvs.spoticopy.contenidoTest.AnuncioTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.SourceFile@5488b5c5_87'>87</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_87'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> es.udc.fic.vvs.spoticopy.servidorTest.ServidorNormalTest.buscarTest(es.udc.fic.vvs.spoticopy.servidorTest.ServidorNormalTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.SourceFile@5488b5c5_88'>88</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_88'/> 
+
+<p class='KILLED'>negated conditional : KILLED -> es.udc.fic.vvs.spoticopy.servidorTest.ServidorNormalTest.buscarTest(es.udc.fic.vvs.spoticopy.servidorTest.ServidorNormalTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.SourceFile@5488b5c5_89'>89</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_89'/> 
+
+<p class='KILLED'>replaced return of integer sized value with (x == 0 ? 1 : 0) : KILLED -> es.udc.fic.vvs.spoticopy.servidorTest.ServidorNormalTest.buscarTest(es.udc.fic.vvs.spoticopy.servidorTest.ServidorNormalTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.SourceFile@5488b5c5_92'>92</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.SourceFile@5488b5c5_92'/> 
+
+<p class='NO_COVERAGE'>replaced return of integer sized value with (x == 0 ? 1 : 0) : NO_COVERAGE</p> 
+</td>
+</tr>
+
+</table>
+
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+
+<li class='mutator'>MATH_MUTATOR</li>
+
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>es.udc.fic.vvs.spoticopy.contenidoTest.AnuncioTest.obtenerDuracionTest(es.udc.fic.vvs.spoticopy.contenidoTest.AnuncioTest) (14 ms)</li><li>es.udc.fic.vvs.spoticopy.servidorTest.ServidorNormalTest.buscarTest(es.udc.fic.vvs.spoticopy.servidorTest.ServidorNormalTest) (1 ms)</li><li>es.udc.fic.vvs.spoticopy.contenidoTest.AnuncioTest.obtenerListaReproduccionTest(es.udc.fic.vvs.spoticopy.contenidoTest.AnuncioTest) (2 ms)</li><li>es.udc.fic.vvs.spoticopy.servidorTest.ServidorNormalTest.buscarTest2(es.udc.fic.vvs.spoticopy.servidorTest.ServidorNormalTest) (5 ms)</li><li>es.udc.fic.vvs.spoticopy.contenidoTest.AnuncioTest.obtenerTituloTest(es.udc.fic.vvs.spoticopy.contenidoTest.AnuncioTest) (2 ms)</li><li>es.udc.fic.vvs.spoticopy.contenidoTest.AnuncioTest.buscarTest(es.udc.fic.vvs.spoticopy.contenidoTest.AnuncioTest) (2 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by PIT <a href='http://pitest.org'>mutation testing for java</a>
+
+</body>
+</html>
