@@ -30,6 +30,28 @@ public class ServidorNormalTest {
 		assertEquals(servidor.buscar("cancion", null),listaContenidos);
 	}
 	
+        @Test
+	public void buscarTest2() {
+		List<Contenido> listaContenidos = new ArrayList<Contenido>();
+		Cancion cancion = new Cancion("cancion1", 5);
+                Cancion cancion2 = new Cancion("cancion2", 5);
+                Cancion cancion3 = new Cancion("cancion3", 5);
+		listaContenidos.add(new Anuncio());
+		listaContenidos.add(cancion);
+                listaContenidos.add(cancion2);
+                listaContenidos.add(cancion3);
+		Token token = new Token("ADMINISTRADOR");
+		
+		// Servidor Padre
+		ServidorNormal servidor = new ServidorNormal("SP", listaContenidos, token);
+		
+		assertEquals(servidor.buscar("cancion", null),listaContenidos);
+                
+                // Obtenemos el nombre del servidor
+                assertEquals(servidor.obtenerNombre(), "SP");
+                
+	}
+        
 	@Test
 	public void eliminarTest()
 	{
@@ -44,7 +66,15 @@ public class ServidorNormalTest {
 		
 		List<Contenido> listaVacia = new ArrayList<Contenido>();
 		assertEquals(servidor.buscar("cancion", token.alta()),listaVacia);
-		
+
+                // Damos token de alta
+                String strToken = token.alta();
+                
+                // Usamos token
+                token.usarToken(strToken);
+                
+                // Damos token de baja
+                token.baja(strToken);
 	}
 	
 	@Test

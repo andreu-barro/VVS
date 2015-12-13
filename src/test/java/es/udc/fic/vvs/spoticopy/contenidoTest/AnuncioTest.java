@@ -32,4 +32,20 @@ public class AnuncioTest {
 		assertEquals(anuncio.buscar("PUBLI"),listaContenidos);
 	}
 
+        @Test
+	public void obtenerListaReproduccionTest() {
+            List<Contenido> anuncios = new ArrayList<Contenido>();
+            anuncios.add(anuncio);
+            assertEquals(anuncios, anuncio.obtenerListaReproduccion());
+	}
+        
+        @Test
+	public void agregarTest() {
+            anuncio.agregar(anuncio, anuncio);
+	}
+        
+        @Test
+	public void eliminarTest() {
+            anuncio.eliminar(anuncio);
+	}
 }
