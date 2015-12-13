@@ -25,6 +25,23 @@ public class CancionTest {
 		assertTrue(Integer.compare(cancion.obtenerDuracion(),5)==0);
 	}
 
+        @Test
+	public void obtenerListaReproduccionTest() {
+            List<Contenido> canciones = new ArrayList<Contenido>();
+            canciones.add(cancion);
+            assertEquals(canciones, cancion.obtenerListaReproduccion());
+	}
+        
+        @Test
+	public void agregarTest() {
+            cancion.agregar(cancion, cancion);
+	}
+        
+        @Test
+	public void eliminarTest() {
+            cancion.eliminar(cancion);
+	}
+        
 	@Test
 	public void buscarTest() 
 	{
