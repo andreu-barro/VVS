@@ -13,81 +13,96 @@ import java.util.List;
  */
 public class Anuncio implements Contenido {
 
-	// Anuncio tendra una duracion y un titulo fijos
-	private String titulo = "PUBLICIDAD";
-	private int duracion = 5;
+    // Anuncio tendra una duracion y un titulo fijos
+    private String titulo = "PUBLICIDAD";
+    private int duracion = 5;
 
-	/** Obtiene el titulo del anuncio (un anuncio siempre tiene "PUBLICIDAD"
-	 *  por nombre
-	 *  @return el titulo del anuncio, "PUBLICIDAD"
-	 */
-	public String obtenerTitulo() {
-		return titulo;
-	}
-	
-	/** Obtiene la duracion del anuncio (un anuncio siempre dura 5 segundos).
-	 * 
-	 *  @return la duracion del anuncio, 5
-	 */
-	public int obtenerDuracion() {
-		return duracion;
-	}
-	
-	/** Un anuncio se devuelve a si mismo dentro de una lista.
-	 * 
-	 *  @return Una lista de contenidos con el anuncio dentro
-	 */
-	public List<Contenido> obtenerListaReproduccion() {
-		List<Contenido> lista = new ArrayList<Contenido>();
-		lista.add(this);
-		return lista;
-	}
-	
-	/** Si la subcadena que le pasamos está contenida en el titulo del anuncio,
-	 *  lo devolvemos. Sino devolvemos una lista vacía.
-	 *  
-	 *  @param subcadena la subcadena a buscar
-	 *  @return la cancion, si contiene la subcadena en su titulo. Lista vacia
-	 *  en caso contrario.
-	 */
-	public List<Contenido> buscar(String subcadena) {
-		List<Contenido> lista = new ArrayList<Contenido>();
-		if (titulo.contains(subcadena)) {
-			lista.add(this);
-		}
-		return lista;
-	}
-	
-	/** Anuncio no hace uso de esta funcion. De llamarse no hara absolutamente
-	 *  nada.
-	 * 
-	 *  @return la nada hecha codigo
-	 */
-	public void agregar(Contenido contenido, Contenido predecesor) {
-		return;
-	}
-	
-	/** Anuncio no hace uso de esta funcion. De llamarse no hara absolutamente
-	 *  nada.
-	 * 
-	 *  @return la nada hecha codigo
-	 */
-	public void eliminar(Contenido contenido) {
-		return;
-	}
+    /** Obtiene el titulo del anuncio (un anuncio siempre tiene "PUBLICIDAD"
+     *  por nombre
+     *  @return el titulo del anuncio, "PUBLICIDAD"
+     */
+    public String obtenerTitulo() {
+        return titulo;
+    }
 
-	/** Sobreescrito el equals de Anuncio, para que iguale segun su contenido.
-	 * 
-	 *  @return Si los dos contenidos son anuncios
-	 */
-	@Override
-	public boolean equals(Object obj) {
-		Contenido objeto = (Anuncio) obj;
-		if(titulo.contentEquals(objeto.obtenerTitulo())
-		&& duracion == objeto.obtenerDuracion()) {
-			return true;
-		}
-		
-		return false;
-	}
+    /** Obtiene la duracion del anuncio (un anuncio siempre dura 5 segundos).
+     * 
+     *  @return la duracion del anuncio, 5
+     */
+    public int obtenerDuracion() {
+        return duracion;
+    }
+
+    /** Un anuncio se devuelve a si mismo dentro de una lista.
+     * 
+     *  @return Una lista de contenidos con el anuncio dentro
+     */
+    public List<Contenido> obtenerListaReproduccion() {
+        List<Contenido> lista = new ArrayList<Contenido>();
+        lista.add(this);
+        return lista;
+    }
+
+    /** Si la subcadena que le pasamos está contenida en el titulo del anuncio,
+     *  lo devolvemos. Sino devolvemos una lista vacía.
+     *  
+     *  @param subcadena la subcadena a buscar
+     *  @return la cancion, si contiene la subcadena en su titulo. Lista vacia
+     *  en caso contrario.
+     */
+    public List<Contenido> buscar(String subcadena) {
+        List<Contenido> lista = new ArrayList<Contenido>();
+        if (titulo.contains(subcadena)) {
+                lista.add(this);
+        }
+        return lista;
+    }
+
+    /** Anuncio no hace uso de esta funcion. De llamarse no hara absolutamente
+     *  nada.
+     */
+    public void agregar(Contenido contenido, Contenido predecesor) {
+    }
+
+    /** Anuncio no hace uso de esta funcion. De llamarse no hara absolutamente
+     *  nada.
+     */
+    public void eliminar(Contenido contenido) {
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Anuncio other = (Anuncio) obj;
+        if ((this.titulo == null)
+          ? (other.titulo != null)
+          : !this.titulo.equals(other.titulo)) {
+            return false;
+        }
+        if (this.duracion != other.duracion) {
+            return false;
+        }
+        return true;
+    }
+
+    /** Sobreescrito el equals de Anuncio, para que iguale segun su contenido.
+     * 
+     *  @return Si los dos contenidos son anuncios
+     */
+    
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 29 * hash + (this.titulo != null ? this.titulo.hashCode() : 0);
+        hash = 29 * hash + this.duracion;
+        return hash;
+    }
+        
+        
 }
