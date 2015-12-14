@@ -23,11 +23,23 @@
         	<version>0.6</version>
         	<scope>test</scope>
         </dependency>
+         <dependency>
+            <groupId>com.google.code.jetm</groupId>
+            <artifactId>jetm-reporting-utilities</artifactId>
+            <version>1.0.1</version>
+        </dependency>
         <dependency>
 	<groupId>fm.void.jetm</groupId>
 	<artifactId>jetm</artifactId>
 	<version>1.2.3</version>
 	</dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.4</version>
+            <scope>test</scope>
+            <type>jar</type>
+        </dependency>
     </dependencies>
     
     <build>
