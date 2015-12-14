@@ -23,6 +23,11 @@
         	<version>0.6</version>
         	<scope>test</scope>
         </dependency>
+        <dependency>
+	<groupId>fm.void.jetm</groupId>
+	<artifactId>jetm</artifactId>
+	<version>1.2.3</version>
+	</dependency>
     </dependencies>
     
     <build>
@@ -45,10 +50,63 @@
                     </plugin>   
           </plugins>
     </build>
-    
-</project>
-
-
-    
-    
+    <reporting>
+  <plugins>
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-javadoc-plugin</artifactId>
+      <version>2.10.3</version>
+      <configuration>
+        <additionalparam>-Xdoclint:none</additionalparam>
+      </configuration>
+    </plugin>
+    <plugin>
+      <groupId>com.google.code.jetm</groupId>
+      <artifactId>jetm-maven-plugin</artifactId>
+      <version>1.0.1</version>
+      <configuration>
+        <timings>
+          <timing>${project.build.directory}/jetm</timing>
+        </timings>
+      </configuration>
+    </plugin>
+    <plugin>
+      <groupId>org.codehaus.mojo</groupId>
+      <artifactId>findbugs-maven-plugin</artifactId>
+      <version>3.0.1</version>
+      <configuration>
+        <!--
+        Enables analysis which takes more memory but finds more bugs.
+        If you run out of memory, changes the value of the effort element
+        to 'Low'.
+      -->
+      <effort>Max</effort>
+      <!-- Build doesn't fail if problems are found -->
+      <failOnError>false</failOnError>
+      <!-- Reports all bugs (other values are medium and max) -->
+      <threshold>Low</threshold>
+      <!-- Produces XML report -->
+      <xmlOutput>true</xmlOutput>
+      <!-- Configures the directory in which the XML report is created -->
+      <findbugsXmlOutputDirectory>${project.build.directory}/findbugs</findbugsXmlOutputDirectory>
+    </configuration>
+  </plugin>
+  <plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-checkstyle-plugin</artifactId>
+    <version>2.17</version>
+    <configuration>
+      <configLocation>checkstyle_custom.xml</configLocation>
+    </configuration>
+    <reportSets>
+      <reportSet>
+        <reports>
+          <report>checkstyle</report>
+        </reports>
+      </reportSet>
+    </reportSets>
+  </plugin>
+  
+</plugins>
+</reporting>
 </project>
