@@ -16,10 +16,9 @@ public class Anuncio implements Contenido {
 	// Anuncio tendra una duracion y un titulo fijos
 	private String titulo = "PUBLICIDAD";
 	private int duracion = 5;
-	
+
 	/** Obtiene el titulo del anuncio (un anuncio siempre tiene "PUBLICIDAD"
-	 *  por nombre).
-	 *  
+	 *  por nombre
 	 *  @return el titulo del anuncio, "PUBLICIDAD"
 	 */
 	public String obtenerTitulo() {
