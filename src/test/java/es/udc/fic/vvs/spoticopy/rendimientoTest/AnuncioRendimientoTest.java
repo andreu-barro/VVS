@@ -70,14 +70,14 @@ public class AnuncioRendimientoTest {
 		 * Obtener titulo test.
 		 */
 		@Test
-		public final void obtenerTituloPerformanceTest() {
+		public final void obtenerTituloRendimientoTest() {
 			List<Anuncio> testElements = new ArrayList<Anuncio>();
 			for (int i = 0; i < itNumber; i++) {
 				testElements.add(new Anuncio());
 			}
 
 			EtmPoint point = etmMonitor
-					.createPoint("AnuncioPerfTest:obtenerTitulo");
+					.createPoint("AnuncioRendimientoTest:obtenerTitulo");
 
 			for (Anuncio a : testElements) {
 				a.obtenerTitulo();
@@ -90,14 +90,14 @@ public class AnuncioRendimientoTest {
 		 * Obtener duracion test.
 		 */
 		@Test
-		public final void obtenerDuracionPerformanceTest() {
+		public final void obtenerDuracionRendimientoTest() {
 			List<Anuncio> testElements = new ArrayList<Anuncio>();
 			for (int i = 0; i < itNumber; i++) {
 				testElements.add(new Anuncio());
 			}
 
 			EtmPoint point = etmMonitor
-					.createPoint("AnuncioPerfTest:obtenerDuracion");
+					.createPoint("AnuncioRendimientoTest:obtenerDuracion");
 
 			for (Anuncio a : testElements) {
 				a.obtenerDuracion();
@@ -110,7 +110,7 @@ public class AnuncioRendimientoTest {
 		 * Obtener lista reproduccion test.
 		 */
 		@Test
-		public final void obtenerListaReproduccionPerformanceTest() {
+		public final void obtenerListaReproduccionRendimientoTest() {
 			List<Anuncio> testElements = new ArrayList<Anuncio>();
 			for (int i = 0; i < itNumber; i++) {
 				Anuncio anuncio = new Anuncio();
@@ -118,7 +118,7 @@ public class AnuncioRendimientoTest {
 			}
 
 			EtmPoint point = etmMonitor
-					.createPoint("AnuncioPerfTest:obtenerListaReproduccion");
+					.createPoint("AnuncioRendimientoTest:obtenerListaReproduccion");
 
 			for (Anuncio a : testElements) {
 				a.obtenerListaReproduccion();
@@ -131,14 +131,14 @@ public class AnuncioRendimientoTest {
 		 * Buscar test.
 		 */
 		@Test
-		public final void buscarPerformanceTest() {
+		public final void buscarRendimientoTest() {
 			List<Anuncio> testElements = new ArrayList<Anuncio>();
 			for (int i = 0; i < itNumber; i++) {
 				Anuncio anuncio = new Anuncio();
 				testElements.add(anuncio);
 			}
 
-			EtmPoint point = etmMonitor.createPoint("AnuncioPerfTest:buscar");
+			EtmPoint point = etmMonitor.createPoint("AnuncioRendimientoTest:buscar");
 
 			for (Anuncio a : testElements) {
 				a.buscar("PUBLICIDAD");
