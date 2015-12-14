@@ -112,4 +112,16 @@ public class EmisoraTest {
 		emisora.agregar(emisora, emisora);
 		assertEquals(0, emisora.obtenerDuracion());
 	}
+        
+        @Test
+	public void nuevaEmisoraConContenidosTest()
+	{
+            Cancion cancion1 = new Cancion("A", 5);
+            Cancion cancion2 = new Cancion("C", 5);
+            List<Contenido> contenidos = new ArrayList<Contenido>();
+            contenidos.add(cancion1);
+            contenidos.add(cancion2);
+            Emisora emisora2 = new Emisora("Andreu", (List<Contenido>) contenidos);
+            
+	}
 }
