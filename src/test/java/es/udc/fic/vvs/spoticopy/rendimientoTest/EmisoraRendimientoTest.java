@@ -23,7 +23,7 @@ import com.google.code.jetm.reporting.xml.XmlAggregateBinder;
 
 public class EmisoraRendimientoTest {
 
-private static EtmMonitor etmMonitor;
+    private static EtmMonitor etmMonitor;
 
     /**
      * Configure JETM
@@ -37,17 +37,16 @@ private static EtmMonitor etmMonitor;
     }
 
     /**
-     * Write out the results of all of the test runs. This writes out 
-     * the collected point data to an XML file located in target/jetm
-     * beneath the working directory.
-     * 
-     * @throws Exception
-     *             If any errors occur during the write-out.
+     * Write out the results of all of the test runs. This writes out the
+     * collected point data to an XML file located in target/jetm beneath the
+     * working directory.
+     *
+     * @throws Exception If any errors occur during the write-out.
      */
     @AfterClass
     public static void tearDownAfterClass() throws Exception {
         if (etmMonitor != null) {
-        	etmMonitor.stop();
+            etmMonitor.stop();
 
             final File timingDirectory = new File("target/jetm");
             FileUtils.forceMkdir(timingDirectory);
@@ -55,7 +54,7 @@ private static EtmMonitor etmMonitor;
             final File timingFile = new File(timingDirectory, "Timing" + ".xml");
             final FileWriter writer = new FileWriter(timingFile);
             try {
-            	etmMonitor.render(new BindingMeasurementRenderer(new XmlAggregateBinder(), writer));
+                etmMonitor.render(new BindingMeasurementRenderer(new XmlAggregateBinder(), writer));
             } finally {
                 writer.close();
             }
@@ -63,31 +62,33 @@ private static EtmMonitor etmMonitor;
     }
 
 	// Performance Variables
+    /**
+     * Number of iteratios to check performance.
+     */
+    private final Integer itNumber = 10000;
 
-	/** Number of iteratios to check performance. */
-	private final Integer itNumber = 10000;
-	
-	/**
-	 * Obtener titulo test.
-	 */
-        @Test
-	public final void obtenerTituloRendimientoTest() {
-		List<Emisora> testElements = new ArrayList<Emisora>();
-		for (int i = 0; i < itNumber; i++) {
-			Emisora emisora = new Emisora("titulo",null);
+    /**
+     * Obtener titulo test.
+     */
+    @Test
+    public final void obtenerTituloRendimientoTest() {
+        List<Emisora> testElements = new ArrayList<Emisora>();
+        for (int i = 0; i < itNumber; i++) {
+            Emisora emisora = new Emisora("titulo", null);
 
-			testElements.add(emisora);
-		}
+            testElements.add(emisora);
+        }
 
-		EtmPoint point = etmMonitor
-				.createPoint("EmisoraRendimiento:obtenerTitulo");
+        EtmPoint point = etmMonitor
+                .createPoint("EmisoraRendimiento:obtenerTitulo");
 
-		for (Emisora e : testElements) {
-			e.obtenerTitulo();
-		}
+        for (Emisora e : testElements) {
+            e.obtenerTitulo();
+        }
 
-		point.collect();
-	}}
+        point.collect();
+    }
+}
 //
 //	/**
 //	 * Obtener duracion test.

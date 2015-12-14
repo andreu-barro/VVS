@@ -20,131 +20,129 @@ import com.google.code.jetm.reporting.xml.XmlAggregateBinder;
 
 public class AnuncioRendimientoTest {
 
+    private static EtmMonitor etmMonitor;
 
-		private static EtmMonitor etmMonitor;
-	
-	    /**
-	     * Configure JETM
-	     */
-	    @BeforeClass
-	    public static void setUpBeforeClass() {
-	        BasicEtmConfigurator.configure();
-	
-	        etmMonitor = EtmManager.getEtmMonitor();
-	        etmMonitor.start();
-	    }
-	
-	    /**
-	     * Write out the results of all of the test runs. This writes out 
-	     * the collected point data to an XML file located in target/jetm
-	     * beneath the working directory.
-	     * 
-	     * @throws Exception
-	     *             If any errors occur during the write-out.
-	     */
-	    @AfterClass
-	    public static void tearDownAfterClass() throws Exception {
-	        if (etmMonitor != null) {
-	        	etmMonitor.stop();
-	
-	            final File timingDirectory = new File("target/jetm");
-	            FileUtils.forceMkdir(timingDirectory);
-	
-	            final File timingFile = new File(timingDirectory, "Timing" + ".xml");
-	            final FileWriter writer = new FileWriter(timingFile);
-	            try {
-	            	etmMonitor.render(new BindingMeasurementRenderer(new XmlAggregateBinder(), writer));
-	            } finally {
-	                writer.close();
-	            }
-	        }
-	    }
+    /**
+     * Configure JETM
+     */
+    @BeforeClass
+    public static void setUpBeforeClass() {
+        BasicEtmConfigurator.configure();
+
+        etmMonitor = EtmManager.getEtmMonitor();
+        etmMonitor.start();
+    }
+
+    /**
+     * Write out the results of all of the test runs. This writes out the
+     * collected point data to an XML file located in target/jetm beneath the
+     * working directory.
+     *
+     * @throws Exception If any errors occur during the write-out.
+     */
+    @AfterClass
+    public static void tearDownAfterClass() throws Exception {
+        if (etmMonitor != null) {
+            etmMonitor.stop();
+
+            final File timingDirectory = new File("target/jetm");
+            FileUtils.forceMkdir(timingDirectory);
+
+            final File timingFile = new File(timingDirectory, "Timing" + ".xml");
+            final FileWriter writer = new FileWriter(timingFile);
+            try {
+                etmMonitor.render(new BindingMeasurementRenderer(new XmlAggregateBinder(), writer));
+            } finally {
+                writer.close();
+            }
+        }
+    }
 
 		// Performance Variables
+    /**
+     * Number of iteratios to check performance.
+     */
+    private final Integer itNumber = 10000;
 
-		/** Number of iteratios to check performance. */
-		private final Integer itNumber = 10000;
+    /**
+     * Obtener titulo test.
+     */
+    @Test
+    public final void obtenerTituloRendimientoTest() {
+        List<Anuncio> testElements = new ArrayList<Anuncio>();
+        for (int i = 0; i < itNumber; i++) {
+            testElements.add(new Anuncio());
+        }
 
+        EtmPoint point = etmMonitor
+                .createPoint("AnuncioRendimientoTest:obtenerTitulo");
 
-		/**
-		 * Obtener titulo test.
-		 */
-		@Test
-		public final void obtenerTituloRendimientoTest() {
-			List<Anuncio> testElements = new ArrayList<Anuncio>();
-			for (int i = 0; i < itNumber; i++) {
-				testElements.add(new Anuncio());
-			}
+        for (Anuncio a : testElements) {
+            a.obtenerTitulo();
+        }
 
-			EtmPoint point = etmMonitor
-					.createPoint("AnuncioRendimientoTest:obtenerTitulo");
+        point.collect();
+    }
 
-			for (Anuncio a : testElements) {
-				a.obtenerTitulo();
-			}
+    /**
+     * Obtener duracion test.
+     */
+    @Test
+    public final void obtenerDuracionRendimientoTest() {
+        List<Anuncio> testElements = new ArrayList<Anuncio>();
+        for (int i = 0; i < itNumber; i++) {
+            testElements.add(new Anuncio());
+        }
 
-			point.collect();
-		}
+        EtmPoint point = etmMonitor
+                .createPoint("AnuncioRendimientoTest:obtenerDuracion");
 
-		/**
-		 * Obtener duracion test.
-		 */
-		@Test
-		public final void obtenerDuracionRendimientoTest() {
-			List<Anuncio> testElements = new ArrayList<Anuncio>();
-			for (int i = 0; i < itNumber; i++) {
-				testElements.add(new Anuncio());
-			}
+        for (Anuncio a : testElements) {
+            a.obtenerDuracion();
+        }
 
-			EtmPoint point = etmMonitor
-					.createPoint("AnuncioRendimientoTest:obtenerDuracion");
+        point.collect();
+    }
 
-			for (Anuncio a : testElements) {
-				a.obtenerDuracion();
-			}
+    /**
+     * Obtener lista reproduccion test.
+     */
+    @Test
+    public final void obtenerListaReproduccionRendimientoTest() {
+        List<Anuncio> testElements = new ArrayList<Anuncio>();
+        for (int i = 0; i < itNumber; i++) {
+            Anuncio anuncio = new Anuncio();
+            testElements.add(anuncio);
+        }
 
-			point.collect();
-		}
+        EtmPoint point = etmMonitor
+                .createPoint("AnuncioRendimientoTest:obtenerListaReproduccion");
 
-		/**
-		 * Obtener lista reproduccion test.
-		 */
-		@Test
-		public final void obtenerListaReproduccionRendimientoTest() {
-			List<Anuncio> testElements = new ArrayList<Anuncio>();
-			for (int i = 0; i < itNumber; i++) {
-				Anuncio anuncio = new Anuncio();
-				testElements.add(anuncio);
-			}
+        for (Anuncio a : testElements) {
+            a.obtenerListaReproduccion();
+        }
 
-			EtmPoint point = etmMonitor
-					.createPoint("AnuncioRendimientoTest:obtenerListaReproduccion");
+        point.collect();
+    }
 
-			for (Anuncio a : testElements) {
-				a.obtenerListaReproduccion();
-			}
+    /**
+     * Buscar test.
+     */
+    @Test
+    public final void buscarRendimientoTest() {
+        List<Anuncio> testElements = new ArrayList<Anuncio>();
+        for (int i = 0; i < itNumber; i++) {
+            Anuncio anuncio = new Anuncio();
+            testElements.add(anuncio);
+        }
 
-			point.collect();
-		}
+        EtmPoint point = etmMonitor.createPoint("AnuncioRendimientoTest:buscar");
 
-		/**
-		 * Buscar test.
-		 */
-		@Test
-		public final void buscarRendimientoTest() {
-			List<Anuncio> testElements = new ArrayList<Anuncio>();
-			for (int i = 0; i < itNumber; i++) {
-				Anuncio anuncio = new Anuncio();
-				testElements.add(anuncio);
-			}
+        for (Anuncio a : testElements) {
+            a.buscar("PUBLICIDAD");
+        }
 
-			EtmPoint point = etmMonitor.createPoint("AnuncioRendimientoTest:buscar");
+        point.collect();
+    }
 
-			for (Anuncio a : testElements) {
-				a.buscar("PUBLICIDAD");
-			}
-
-			point.collect();
-		}
-	
 }

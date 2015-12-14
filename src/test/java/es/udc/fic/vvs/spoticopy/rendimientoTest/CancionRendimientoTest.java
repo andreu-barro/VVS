@@ -20,8 +20,7 @@ import com.google.code.jetm.reporting.xml.XmlAggregateBinder;
 
 public class CancionRendimientoTest {
 
-
-	private static EtmMonitor etmMonitor;
+    private static EtmMonitor etmMonitor;
 
     /**
      * Configure JETM
@@ -35,17 +34,16 @@ public class CancionRendimientoTest {
     }
 
     /**
-     * Write out the results of all of the test runs. This writes out 
-     * the collected point data to an XML file located in target/jetm
-     * beneath the working directory.
-     * 
-     * @throws Exception
-     *             If any errors occur during the write-out.
+     * Write out the results of all of the test runs. This writes out the
+     * collected point data to an XML file located in target/jetm beneath the
+     * working directory.
+     *
+     * @throws Exception If any errors occur during the write-out.
      */
     @AfterClass
     public static void tearDownAfterClass() throws Exception {
         if (etmMonitor != null) {
-        	etmMonitor.stop();
+            etmMonitor.stop();
 
             final File timingDirectory = new File("target/jetm");
             FileUtils.forceMkdir(timingDirectory);
@@ -53,7 +51,7 @@ public class CancionRendimientoTest {
             final File timingFile = new File(timingDirectory, "Timing" + ".xml");
             final FileWriter writer = new FileWriter(timingFile);
             try {
-            	etmMonitor.render(new BindingMeasurementRenderer(new XmlAggregateBinder(), writer));
+                etmMonitor.render(new BindingMeasurementRenderer(new XmlAggregateBinder(), writer));
             } finally {
                 writer.close();
             }
@@ -61,105 +59,106 @@ public class CancionRendimientoTest {
     }
 
 	// Performance Variables
+    /**
+     * Number of iteratios to check performance.
+     */
+    private final Integer itNumber = 10000;
 
-	/** Number of iteratios to check performance. */
-	private final Integer itNumber = 10000;
+    /**
+     * Obtener titulo test.
+     */
+    @Test
+    public final void obtenerTituloRendimientoTest() {
+        List<Cancion> testElements = new ArrayList<Cancion>();
+        for (int i = 0; i < itNumber; i++) {
+            String nombre = "cancionOpera";
+            Integer duracion = 10;
+            Cancion cancion = new Cancion(nombre, duracion);
 
-	/**
-	 * Obtener titulo test.
-	 */
-	@Test
-	public final void obtenerTituloRendimientoTest() {
-		List<Cancion> testElements = new ArrayList<Cancion>();
-		for (int i = 0; i < itNumber; i++) {
-			String nombre = "cancionOpera";
-			Integer duracion = 10;
-			Cancion cancion = new Cancion(nombre, duracion);
+            testElements.add(cancion);
+        }
 
-			testElements.add(cancion);
-		}
+        EtmPoint point = etmMonitor
+                .createPoint("CancionRendimiento:obtenerTitulo");
 
-		EtmPoint point = etmMonitor
-				.createPoint("CancionRendimiento:obtenerTitulo");
+        for (Cancion c : testElements) {
+            c.obtenerTitulo();
+        }
 
-		for (Cancion c : testElements) {
-			c.obtenerTitulo();
-		}
+        point.collect();
+    }
 
-		point.collect();
-	}
+    /**
+     * Obtener duracion test.
+     */
+    @Test
+    public final void obtenerDuracionRendimientoTest() {
+        List<Cancion> testElements = new ArrayList<Cancion>();
+        for (int i = 0; i < itNumber; i++) {
+            String nombre = "cancionOpera";
+            Integer duracion = 10;
+            Cancion cancion = new Cancion(nombre, duracion);
 
-	/**
-	 * Obtener duracion test.
-	 */
-	@Test
-	public final void obtenerDuracionRendimientoTest() {
-		List<Cancion> testElements = new ArrayList<Cancion>();
-		for (int i = 0; i < itNumber; i++) {
-			String nombre = "cancionOpera";
-			Integer duracion = 10;
-			Cancion cancion = new Cancion(nombre, duracion);
+            testElements.add(cancion);
+        }
 
-			testElements.add(cancion);
-		}
+        EtmPoint point = etmMonitor
+                .createPoint("CancionRendimiento:obtenerDuracion");
 
-		EtmPoint point = etmMonitor
-				.createPoint("CancionRendimiento:obtenerDuracion");
+        for (Cancion c : testElements) {
+            c.obtenerDuracion();
+        }
 
-		for (Cancion c : testElements) {
-			c.obtenerDuracion();
-		}
+        point.collect();
+    }
 
-		point.collect();
-	}
+    /**
+     * Obtener lista reproduccion test.
+     */
+    @Test
+    public final void obtenerListaReproduccionRendimientoTest() {
+        List<Cancion> testElements = new ArrayList<Cancion>();
+        for (int i = 0; i < itNumber; i++) {
+            String nombre = "cancionOpera";
+            Integer duracion = 10;
+            Cancion cancion = new Cancion(nombre, duracion);
 
-	/**
-	 * Obtener lista reproduccion test.
-	 */
-	@Test
-	public final void obtenerListaReproduccionRendimientoTest() {
-		List<Cancion> testElements = new ArrayList<Cancion>();
-		for (int i = 0; i < itNumber; i++) {
-			String nombre = "cancionOpera";
-			Integer duracion = 10;
-			Cancion cancion = new Cancion(nombre, duracion);
+            testElements.add(cancion);
+        }
 
-			testElements.add(cancion);
-		}
+        EtmPoint point = etmMonitor
+                .createPoint("CancionRendimiento:obtenerListaReproduccion");
 
-		EtmPoint point = etmMonitor
-				.createPoint("CancionRendimiento:obtenerListaReproduccion");
+        for (Cancion c : testElements) {
+            c.obtenerListaReproduccion();
+        }
 
-		for (Cancion c : testElements) {
-			c.obtenerListaReproduccion();
-		}
+        point.collect();
+    }
 
-		point.collect();
-	}
+    /**
+     * Buscar test.
+     */
+    @Test
+    public final void buscarRendimientoTest() {
+        ArrayList<Cancion> testElements = new ArrayList<Cancion>();
+        String nombreBusqueda = "";
+        for (int i = 0; i < itNumber; i++) {
+            String nombre = "cancionOpera";
+            Integer duracion = 10;
+            Cancion cancion = new Cancion(nombre, duracion);
 
-	/**
-	 * Buscar test.
-	 */
-	@Test
-	public final void buscarRendimientoTest() {
-		ArrayList<Cancion> testElements = new ArrayList<Cancion>();
-		String nombreBusqueda = "";
-		for (int i = 0; i < itNumber; i++) {
-			String nombre = "cancionOpera";
-			Integer duracion = 10;
-			Cancion cancion = new Cancion(nombre, duracion);
+            testElements.add(cancion);
+            nombreBusqueda = nombre;
+        }
 
-			testElements.add(cancion);
-			nombreBusqueda = nombre;
-		}
+        EtmPoint point = etmMonitor.createPoint("CancionRendimiento:buscar");
 
-		EtmPoint point = etmMonitor.createPoint("CancionRendimiento:buscar");
+        for (Cancion c : testElements) {
+            c.buscar(nombreBusqueda);
+        }
 
-		for (Cancion c : testElements) {
-			c.buscar(nombreBusqueda);
-		}
+        point.collect();
+    }
 
-		point.collect();
-	}
-	
 }
