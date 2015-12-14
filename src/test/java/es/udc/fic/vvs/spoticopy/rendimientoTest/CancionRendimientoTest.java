@@ -67,7 +67,6 @@ public class CancionRendimientoTest {
 
 	/**
 	 * Obtener titulo test.
-	 * @throws InvalidSongsDurationException 
 	 */
 	@Test
 	public final void obtenerTituloRendimientoTest() {
@@ -92,7 +91,6 @@ public class CancionRendimientoTest {
 
 	/**
 	 * Obtener duracion test.
-	 * @throws InvalidSongsDurationException 
 	 */
 	@Test
 	public final void obtenerDuracionRendimientoTest() {
@@ -117,7 +115,6 @@ public class CancionRendimientoTest {
 
 	/**
 	 * Obtener lista reproduccion test.
-	 * @throws InvalidSongsDurationException 
 	 */
 	@Test
 	public final void obtenerListaReproduccionRendimientoTest() {
@@ -142,7 +139,6 @@ public class CancionRendimientoTest {
 
 	/**
 	 * Buscar test.
-	 * @throws InvalidSongsDurationException 
 	 */
 	@Test
 	public final void buscarRendimientoTest() {
