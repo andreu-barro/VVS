@@ -116,7 +116,7 @@
 	
 	\href{Informes/PIT1/index.html}{Informe PIT} \\
 	
-	\subsection{FindBugs}
+	\subsection{Pruebas estáticas/estructurales: FindBugs}
 	
 	FindBugs es un programa que utiliza el análisis estático para buscar errores en el código de Java.
 	
@@ -135,10 +135,26 @@
 		Después de identificar los errores, resolvedos los problemas mencionados y comprobamos el resultado:\\
 		\\
 	\includegraphics[width=15cm]{Imagenes/FindsBugs2.png} \\
+	
+		\subsection{Pruebas estáticas/estructurales: CheckStyle}
+		
+		Checkstyle es una herramienta de desarrollo para ayudar a los programadores escribir código Java que se adhiere a un estándar de codificación. 
+		Para comprobar el estilo, pasamos la herramienta CheckStyle a nuestra aplicación y comprobamos el resultado:
+		\href{Informes/SiteTestInicial/checkstyle.html}{Informe CheckStyle} \\
+		Al pasar la herramienta de CheckStyle descubrimos que nuestra aplicación tiene unos 236 errores de estilo, es decir, que no cumple el estandar de programación java.
+		
+		Resumen de errores encontrados:
+		\begin{itemize}
+		\item Faltan comentarios: En la mayoría de clases faltan comentarios javadoc. Se añaden.
+		\item Mala indexación código y espacios: Se reestructura el código para que solventar dichos errores.
+		\end{itemize}
+		
+		Se revisa el informe con los 236 errores de estilo y se eliminan los 236 errores de estilo.
+		\includegraphics[width=15cm]{Imagenes/CheckStyleResut.png} \\
+		
 	\section{Registro de errores}
 	
 	Todos los errores localizados, modificaciones necesarias, etc. pueden encontrarse referenciados en el documento de CHANGELOG.txt, en el cual se encuentran las correcciones hasta el momento.
-	
 	
 	\section{Estadísticas}
 	
