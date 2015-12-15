@@ -58,27 +58,25 @@ public class Token {
      */
     public String alta() {
         String token = null;
-
-        while (token == null) {
+        do {
             try {
                 final int tam = 16;
                 byte[] bytes = new byte[tam];
                 r.nextBytes(bytes);
                 token = new String(bytes, "UTF-8");
             } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
                 return null;
             }
             // Ha generado un token que ya existe
             // o el token de administración
-            if (tokens.contains(token)
-                    || token.contentEquals(adminToken)) {
+            if (this.isAdminToken(token) || tokens.contains(token)) {
                 token = null;
             } else {
                 tokens.add(token);
                 usos.add(MAX_USES);
             }
-        }
+        } while (token == null);
+        
         return token;
     }
 
@@ -89,7 +87,7 @@ public class Token {
     public void baja(final String token) {
         if (token != null) {
             int index = tokens.indexOf(token);
-            if (index >= 0 && index < tokens.size() && index < usos.size()) {
+            if (index >= 0) {
                 tokens.remove(index);
                 usos.remove(index);
             }
@@ -115,19 +113,35 @@ public class Token {
     }
 
     /**
+     * Comprueba cuantos usos le quedan a un token.
+     * @param token El token a comprobar
+     * @return El numero de usos (el token admin devuelve 0).
+     */
+    public long obtenerUsos(final String token) {
+        if (!contains(token) || isAdminToken(token)) {
+            return 0;
+        } else {
+            int index = tokens.indexOf(token);
+            return usos.get(index);
+        }
+    }
+    
+    /**
      * Gasta un uso del token.
      * @param token Token a usar.
      */
     public void usarToken(final String token) {
         if (token != null) {
             int index = tokens.indexOf(token);
-            Long uso = usos.get(index);
-            --uso;
-            if (uso == 0) {
-                tokens.remove(index);
-                usos.remove(index);
-            } else {
-                usos.set(index, uso);
+            if (index >= 0) {
+                Long uso = usos.get(index);
+                --uso;
+                if (uso == 0) {
+                    tokens.remove(index);
+                    usos.remove(index);
+                } else {
+                    usos.set(index, uso);
+                }
             }
         }
     }
