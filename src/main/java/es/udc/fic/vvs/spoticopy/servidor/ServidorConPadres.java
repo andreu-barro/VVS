@@ -15,7 +15,7 @@ import es.udc.fic.vvs.spoticopy.token.Token;
  *  Servidores). OJO, la implementacion no contempla el caso de un anillo
  *  de servidores, intentarlo creara un bucle infinito.
  */
-public class ServidorConPadres extends ServidorGenerico implements Servidor {
+public class ServidorConPadres extends ServidorGenerico {
 
 	private Servidor padre;
 	
