@@ -18,6 +18,7 @@ import java.util.Random;
 public class Token {
 
     private final static Long MAX_USES = 10L;
+<<<<<<< HEAD
 
     private static List<String> tokens;
     private static List<Long> usos;
@@ -36,6 +37,26 @@ public class Token {
     public String alta() {
         String token = null;
 
+=======
+
+    private List<String> tokens;
+    private List<Long> usos;
+    private String adminToken;
+    private Random r;
+
+    public Token(String admin_t) {
+        tokens = new ArrayList<String>();
+        usos = new ArrayList<Long>();
+        adminToken = admin_t;
+        // Introducir una semilla concreta si se quiere una generación de
+        // tokens predecible entre ejecuciones de la aplicación
+        r = new Random(Calendar.getInstance().getTimeInMillis());
+    }
+
+    public String alta() {
+        String token = null;
+
+>>>>>>> e396f952ca81c31055eefce8a40c206730ba918d
         while (token == null) {
             try {
                 byte[] bytes = new byte[16];
