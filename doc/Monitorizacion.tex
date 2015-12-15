@@ -77,7 +77,22 @@ Este documento hace referencia a las pruebas realizadas sobre el proyecto de la 
 Listaxe de funcionalidades actuais, as súas especificacións, as persoas responsables do seu desenvolvemento, e as persoas responsables do proceso de proba.  Para cada funcionalidade: número de probas obxectivo, número de probas preparadas, porcentaxe executada e porcentaxe superada. Se esta información é profusa e se almacena noutra fonte, referencia á fonte. Se é cambiante, referencia a unha \emph{shapshot} ou resumo do mais destacado.
 
 \section{Registro de pruebas}
-Actualmente se encuentran implementadas las pruebas sencillas de JUnit implementadas en la primera semana del proyecto.
+\subsection{JUnit}
+JUnit se utiliza para realizar pruebas unitarias sobre nuestra aplicación, nos sirven para encontrar errores y solventar los problemas en la programación de forma manual.
+Se realizan pruebas de todas las funciones implementadas en la aplicación.
+\subsection{Quickcheck}
+QuickCheck es una implementación de la herramienta de prueba basada especificación QuickCheck .
+El objetivo de QuickCheck es sustituir los valores recogidos manualmente con los valores generados . Una prueba basada en QuickCheck trata de cubrir las leyes de un dominio , mientras que la prueba clásica sólo puede probar la validez de los valores distintos. Es una mejora de Junit y podemos encontrar problemas de rendimiento con las iteraciones. \\
+Se crean generadores de:
+\begin{itemize}
+	\item GeneradorContenido
+	\item GeneradorCancion
+	\item GeneradorServidor
+	\item GeneradorServidorVacio
+\end{itemize}
+
+Con estos generadores, se comprueban las funciones de Servidor normal y que todo está funcionando correctamente.
+
 \subsection{Cobertura}
 Realizada la prueba de cobertura de pruebas, se observa que faltan muchos test por implementar, por lo que se procede a implementar los test que faltan, según la información que nos ofrece el plugin de ecobertura.\\
 \includegraphics[width=15cm]{Imagenes/CoberturaSemana1.png} \\
@@ -100,6 +115,8 @@ Quedó:
 Realizado el mutation testing, resultados:
 
 \href{Informes/PIT1/index.html}{Informe PIT} \\
+
+
 
 \section{Registro de errores}
 
