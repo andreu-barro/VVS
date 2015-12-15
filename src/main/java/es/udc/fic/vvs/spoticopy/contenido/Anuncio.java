@@ -88,32 +88,20 @@ public class Anuncio implements Contenido {
     @Override
     public boolean equals(final Object obj) {
         
-        if (obj == null) {
-            return false;
-        }
-        
-        if (this.getClass() != obj.getClass()) {
-            return false;
-        }
-        
-        Anuncio other = (Anuncio) obj;
-        
-        if (other.obtenerDuracion() != this.obtenerDuracion()) {
-            return false;
-        }
-        
-        return (other.obtenerTitulo().contentEquals(this.obtenerTitulo()));
+        // Si son de la misma clase (Anuncio), son iguales.
+        return (obj != null) && (this.getClass() == obj.getClass());
     }
 
-    
-
     /**
-     * Sobreescrito el equals de Anuncio, para que iguale segun su contenido.
-     *
-     * @return Si los dos contenidos son anuncios
+     * Genera un codigo hash del objeto.
+     * @return Hash del objeto.
      */
     @Override
     public int hashCode() {
-        return super.hashCode(); //To change body of generated methods, choose Tools | Templates.
+        int hash = 7;
+        hash = 53 * hash + this.TITULO.hashCode();
+        hash = 53 * hash + this.DURACION;
+        return hash;
     }
+    
 }

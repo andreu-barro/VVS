@@ -46,16 +46,11 @@ public class ServidorConPadres extends ServidorGenerico {
      */
     public List<Contenido> buscar(final String subcadena, final String tok) {
         List<Contenido> resultado = new ArrayList<Contenido>();
-        boolean hayToken = false;
         final int espacio = 3;
         Token token = getToken();
         List<Contenido> contenidos = getContenidos();
         
-        if (tok != null) {
-            if (token.contains(tok) || token.isAdminToken(tok)) {
-                hayToken = true;
-            }
-        }
+        boolean hayToken = (token.contains(tok) || token.isAdminToken(tok));
 
         // Lista de contenidos que contiene la subcadena
         List<Contenido> busqueda = new ArrayList<Contenido>();
@@ -67,21 +62,20 @@ public class ServidorConPadres extends ServidorGenerico {
 
         // Envío final
         int interv = 0;
+        if (!hayToken) {
+            resultado.add(new Anuncio());
+        }
         for (Contenido i : busqueda) {
-            if (!hayToken && interv == 0) {
-                resultado.add(new Anuncio());
-            }
-            if (i.obtenerTitulo().contains(subcadena)) {
-                resultado.add(i);
-            }
+            resultado.add(i);
             interv++;
             if (interv >= espacio) {
+                resultado.add(new Anuncio());
                 interv = 0;
             }
         }
 
         // Reducimos un uso al token
-        if (hayToken && !token.isAdminToken(tok)) {
+        if (token != null && !token.isAdminToken(tok)) {
             token.usarToken(tok);
         }
 

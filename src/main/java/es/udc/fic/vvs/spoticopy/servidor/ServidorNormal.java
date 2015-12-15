@@ -53,15 +53,14 @@ public class ServidorNormal extends ServidorGenerico {
 
         // Envío final
         int interv = 0;
+        if (!hayToken) {
+            resultado.add(new Anuncio());
+        }
         for (Contenido i : busqueda) {
-            if (!hayToken && interv == 0) {
-                resultado.add(new Anuncio());
-            }
-            if (i.obtenerTitulo().contains(subcadena)) {
-                resultado.add(i);
-            }
+            resultado.add(i);
             interv++;
             if (interv >= espacio) {
+                resultado.add(new Anuncio());
                 interv = 0;
             }
         }

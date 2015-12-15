@@ -12,40 +12,60 @@ import es.udc.fic.vvs.spoticopy.contenido.Contenido;
 
 public class AnuncioTest {
 
-	Anuncio anuncio = new Anuncio();
+    Anuncio anuncio = new Anuncio();
 
-	@Test
-	public void obtenerTituloTest() {
-		assertTrue(anuncio.obtenerTitulo().equals("PUBLICIDAD"));
-	}
-	
-	@Test
-	public void obtenerDuracionTest() {
-		assertTrue(Integer.compare(anuncio.obtenerDuracion(),5)==0);
-	}
-	
-	@Test
-	public void buscarTest() 
-	{
-		List<Contenido> listaContenidos = new ArrayList<Contenido>();
-		listaContenidos.add(anuncio);
-		assertEquals(anuncio.buscar("PUBLI"),listaContenidos);
-	}
+    @Test
+    public void obtenerTituloTest() {
+        assertTrue(anuncio.obtenerTitulo().contentEquals("PUBLICIDAD"));
+    }
 
-        @Test
-	public void obtenerListaReproduccionTest() {
-            List<Contenido> anuncios = new ArrayList<Contenido>();
-            anuncios.add(anuncio);
-            assertEquals(anuncios, anuncio.obtenerListaReproduccion());
-	}
+    @Test
+    public void obtenerDuracionTest() {
+        assertTrue(anuncio.obtenerDuracion() == 5);
+    }
+
+    @Test
+    public void obtenerListaReproduccionTest() {
+        List<Contenido> anuncios = new ArrayList<Contenido>();
+        anuncios.add(anuncio);
+        assertEquals(anuncios, anuncio.obtenerListaReproduccion());
+    }
+    
+    @Test
+    public void buscarTest() {
+        // Valido
+        List<Contenido> listaContenidos = new ArrayList<Contenido>();
+        listaContenidos.add(anuncio);
+        assertEquals(anuncio.buscar("PUBLI"), listaContenidos);
         
-        @Test
-	public void agregarTest() {
-            anuncio.agregar(anuncio, anuncio);
-	}
-        
-        @Test
-	public void eliminarTest() {
-            anuncio.eliminar(anuncio);
-	}
+        // No valido
+        assertEquals(anuncio.buscar("ASFD"), new ArrayList<Contenido>());
+    }
+
+    @Test
+    public void agregarTest() {
+        Contenido cont = new Anuncio();
+        List<Contenido> listaContenidos = new ArrayList<Contenido>();
+        listaContenidos.add(anuncio);
+        assertEquals(anuncio.buscar("PUBLI"), listaContenidos);
+        anuncio.agregar(cont, anuncio);
+        assertEquals(anuncio.buscar("PUBLI"), listaContenidos);
+    }
+
+    @Test
+    public void eliminarTest() {
+        List<Contenido> listaContenidos = anuncio.obtenerListaReproduccion();
+        anuncio.eliminar(anuncio);
+        assertEquals(anuncio.buscar("PUBLI"), listaContenidos);
+    }
+    
+    @Test
+    public void equalsTest() {
+        assertTrue(anuncio.equals(new Anuncio()));
+    }
+    
+    @Test
+    public void hashCodeTest() {
+        assertEquals(anuncio.hashCode(), (new Anuncio()).hashCode());
+    }
 }

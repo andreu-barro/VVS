@@ -87,9 +87,13 @@ public class Token {
      * @param token El token a dar de baja.
      */
     public void baja(final String token) {
-        int index = tokens.indexOf(token);
-        tokens.remove(index);
-        usos.remove(index);
+        if (token != null) {
+            int index = tokens.indexOf(token);
+            if (index >= 0 && index < tokens.size() && index < usos.size()) {
+                tokens.remove(index);
+                usos.remove(index);
+            }
+        }
     }
 
     /**
@@ -98,7 +102,7 @@ public class Token {
      * @return Si el token es de administracion.
      */
     public boolean isAdminToken(final String token) {
-        return adminToken.contentEquals(token);
+        return (token != null && adminToken.contentEquals(token));
     }
 
     /**
@@ -107,7 +111,7 @@ public class Token {
      * @return Si el token esta presente.
      */
     public boolean contains(final String token) {
-        return tokens.contains(token);
+        return (token != null && tokens.contains(token));
     }
 
     /**
@@ -115,14 +119,16 @@ public class Token {
      * @param token Token a usar.
      */
     public void usarToken(final String token) {
-        int index = tokens.indexOf(token);
-        Long uso = usos.get(index);
-        --uso;
-        if (uso == 0) {
-            tokens.remove(index);
-            usos.remove(index);
-        } else {
-            usos.set(index, uso);
+        if (token != null) {
+            int index = tokens.indexOf(token);
+            Long uso = usos.get(index);
+            --uso;
+            if (uso == 0) {
+                tokens.remove(index);
+                usos.remove(index);
+            } else {
+                usos.set(index, uso);
+            }
         }
     }
 }

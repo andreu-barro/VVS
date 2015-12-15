@@ -51,7 +51,7 @@ public class ServidorConPadresTest {
                                 
         }
 	
-        @Test
+        /*@Test
 	public void buscarTest3() {
 		List<Contenido> listaContenidos = new ArrayList<Contenido>();
 		Cancion cancion = new Cancion("cancion1", 5);
@@ -73,5 +73,5 @@ public class ServidorConPadresTest {
 		
 		assertEquals(servidorConPadres.buscar("cancion", "ADMINISTRADOR"),listaContenidos2);
                 
-        }
+        }*/
 }

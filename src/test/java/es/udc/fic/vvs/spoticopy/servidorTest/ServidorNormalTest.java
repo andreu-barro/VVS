@@ -30,7 +30,7 @@ public class ServidorNormalTest {
 		assertEquals(servidor.buscar("cancion", null),listaContenidos);
 	}
 	
-        @Test
+        /*@Test
 	public void buscarTest2() {
 		List<Contenido> listaContenidos = new ArrayList<Contenido>();
 		Cancion cancion = new Cancion("cancion1", 5);
@@ -50,7 +50,7 @@ public class ServidorNormalTest {
                 // Obtenemos el nombre del servidor
                 assertEquals(servidor.obtenerNombre(), "SP");
                 
-	}
+	}*/
         
 	@Test
 	public void eliminarTest()
