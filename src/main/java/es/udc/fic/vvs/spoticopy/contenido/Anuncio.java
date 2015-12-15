@@ -12,10 +12,10 @@ public class Anuncio implements Contenido {
 
     /** Anuncio tiene un título fijo: "PUBLICIDAD".
      */
-    private final String titulo = "PUBLICIDAD";
+    private static final String TITULO = "PUBLICIDAD";
     /** Anuncio tiene una duración fija de 5 segundos.
      */
-    private final int duracion = 5;
+    private static final int DURACION = 5;
 
     /**
      * Obtiene el titulo del anuncio (un anuncio siempre tiene "PUBLICIDAD" por
@@ -24,7 +24,7 @@ public class Anuncio implements Contenido {
      * @return el titulo del anuncio, "PUBLICIDAD"
      */
     public String obtenerTitulo() {
-        return titulo;
+        return TITULO;
     }
 
     /**
@@ -33,7 +33,7 @@ public class Anuncio implements Contenido {
      * @return la duracion del anuncio, 5
      */
     public int obtenerDuracion() {
-        return duracion;
+        return DURACION;
     }
 
     /**
@@ -57,7 +57,7 @@ public class Anuncio implements Contenido {
      */
     public List<Contenido> buscar(final String subcadena) {
         List<Contenido> lista = new ArrayList<Contenido>();
-        if (titulo.contains(subcadena)) {
+        if (TITULO.contains(subcadena)) {
             lista.add(this);
         }
         return lista;
@@ -80,20 +80,32 @@ public class Anuncio implements Contenido {
     public void eliminar(final Contenido contenido) {
     }
 
+    /**
+     * Comprueba si dos objetos son iguales.
+     * @param obj El objeto con el que compararlo
+     * @return Si los objetos son iguales
+     */
     @Override
     public boolean equals(final Object obj) {
+        
         if (obj == null) {
             return false;
         }
-        if (getClass() != obj.getClass()) {
+        
+        if (this.getClass() != obj.getClass()) {
             return false;
         }
-        final Anuncio other = (Anuncio) obj;
-        if (!this.titulo.equals(other.titulo)) {
+        
+        Anuncio other = (Anuncio) obj;
+        
+        if (other.obtenerDuracion() != this.obtenerDuracion()) {
             return false;
         }
-        return this.duracion == other.duracion;
+        
+        return (other.obtenerTitulo().contentEquals(this.obtenerTitulo()));
     }
+
+    
 
     /**
      * Sobreescrito el equals de Anuncio, para que iguale segun su contenido.
@@ -102,13 +114,6 @@ public class Anuncio implements Contenido {
      */
     @Override
     public int hashCode() {
-        int hash = 5;
-        int tit = 0;
-        if (this.titulo != null) {
-            tit = this.titulo.hashCode();
-        }
-        hash = 29 * hash + tit;
-        hash = 29 * hash + this.duracion;
-        return hash;
+        return super.hashCode(); //To change body of generated methods, choose Tools | Templates.
     }
 }

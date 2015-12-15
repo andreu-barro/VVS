@@ -25,19 +25,19 @@ public class Token {
     /**
      * Lista de tokens validos.
      */
-    private static List<String> tokens;
+    private List<String> tokens;
     /**
      * Numero de usos restantes a los tokens.
      */
-    private static List<Long> usos;
+    private List<Long> usos;
     /**
      * Token de administracion (usos infinitos).
      */
-    private static String adminToken;
+    private final String adminToken;
     /**
      * Semilla de generacion de tokens.
      */
-    private static Random r;
+    private final Random r;
 
     /**
      * Sistema de tokens.
