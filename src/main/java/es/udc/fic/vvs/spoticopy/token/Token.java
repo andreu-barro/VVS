@@ -17,35 +17,59 @@ import java.util.Random;
  */
 public class Token {
 
-    private final static Long MAX_USES = 10L;
+    /**
+     * Numero maximo de usos de un token (salvo el de administracion).
+     */
+    private static final Long MAX_USES = 10L;
 
+    /**
+     * Lista de tokens validos.
+     */
     private static List<String> tokens;
+    /**
+     * Numero de usos restantes a los tokens.
+     */
     private static List<Long> usos;
+    /**
+     * Token de administracion (usos infinitos).
+     */
     private static String adminToken;
+    /**
+     * Semilla de generacion de tokens.
+     */
     private static Random r;
 
-    public Token(String admin_t) {
+    /**
+     * Sistema de tokens.
+     * @param admin El token con permisos de administracion.
+     */
+    public Token(final String admin) {
         tokens = new ArrayList<String>();
         usos = new ArrayList<Long>();
-        adminToken = admin_t;
-		// Introducir una semilla concreta si se quiere una generación de
+        adminToken = admin;
+        // Introducir una semilla concreta si se quiere una generación de
         // tokens predecible entre ejecuciones de la aplicación
-        r = new Random(9999);
+        r = new Random(Calendar.getInstance().getTimeInMillis());
     }
 
+    /**
+     * Genera un nuevo token y lo agrega a su lista.
+     * @return El token generado.
+     */
     public String alta() {
         String token = null;
 
         while (token == null) {
             try {
-                byte[] bytes = new byte[16];
+                final int tam = 16;
+                byte[] bytes = new byte[tam];
                 r.nextBytes(bytes);
                 token = new String(bytes, "UTF-8");
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
                 return null;
             }
-			// Ha generado un token que ya existe
+            // Ha generado un token que ya existe
             // o el token de administración
             if (tokens.contains(token)
                     || token.contentEquals(adminToken)) {
@@ -58,21 +82,39 @@ public class Token {
         return token;
     }
 
-    public void baja(String token) {
+    /**
+     * Da de baja directamente un token sin importar sus usos restantes.
+     * @param token El token a dar de baja.
+     */
+    public void baja(final String token) {
         int index = tokens.indexOf(token);
         tokens.remove(index);
         usos.remove(index);
     }
 
-    public boolean isAdminToken(String token) {
+    /**
+     * Comprueba si un token es de administracion.
+     * @param token El token a comprobar.
+     * @return Si el token es de administracion.
+     */
+    public boolean isAdminToken(final String token) {
         return adminToken.contentEquals(token);
     }
 
-    public boolean contains(String token) {
+    /**
+     * Comprueba si un token pertenece al sistema.
+     * @param token El token a buscar.
+     * @return Si el token esta presente.
+     */
+    public boolean contains(final String token) {
         return tokens.contains(token);
     }
 
-    public void usarToken(String token) {
+    /**
+     * Gasta un uso del token.
+     * @param token Token a usar.
+     */
+    public void usarToken(final String token) {
         int index = tokens.indexOf(token);
         Long uso = usos.get(index);
         --uso;

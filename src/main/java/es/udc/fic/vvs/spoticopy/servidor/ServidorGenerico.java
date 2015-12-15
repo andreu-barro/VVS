@@ -6,53 +6,107 @@ import java.util.List;
 import es.udc.fic.vvs.spoticopy.contenido.Contenido;
 import es.udc.fic.vvs.spoticopy.token.Token;
 
-/** Esta clase contiene el comportamiento generico de un servidor.
- * Las particularidades se implementan en distintas clases que
- * heredaran de GenericServidor.
+/**
+ * Esta clase contiene el comportamiento generico de un servidor. Las
+ * particularidades se implementan en distintas clases que heredaran de
+ * GenericServidor.
  */
 public abstract class ServidorGenerico implements Servidor {
 
-	protected String nombre;
-	protected List<Contenido> contenidos;
-	/** Lista de tokens compartida por todos los servidores */
-	protected Token token = null;
-	
-	public ServidorGenerico(String nombre, List<Contenido> contenidos, Token token) {
-		this.nombre = nombre;
-		this.contenidos = contenidos;
-		if(contenidos == null) {
-			this.contenidos = new ArrayList<Contenido>();
-		}
-		if(token != null) {
-			this.token = token;
-		}
-		
-	}
+    /**
+     * Nombre del servidor.
+     */
+    private final String nombre;
+    /**
+     * Contenidos que ofrece el servidor.
+     */
+    private List<Contenido> contenidos;
+    /**
+     * Lista de tokens compartida por todos los servidores.
+     */
+    private Token token = null;
 
-	public String obtenerNombre() {
-		return nombre;
-	}
+    /**
+     * Construye un servidor generico.
+     * @param nombre El nombre del servidor.
+     * @param contenidos Los contenidos que ofrece.
+     * @param token El sistema de tokens que usara.
+     */
+    public ServidorGenerico(final String nombre, 
+            final List<Contenido> contenidos, final Token token) {
+        this.nombre = nombre;
+        this.contenidos = contenidos;
+        if (contenidos == null) {
+            this.contenidos = new ArrayList<Contenido>();
+        }
+        if (token != null) {
+            this.token = token;
+        }
 
-	public String alta() {
-		return token.alta();
-	}
+    }
 
-	public void baja(String tok) {
-		token.baja(tok);
-	}
+    /**
+     * Devuelve el nombre del servidor.
+     * @return Nombre del servidor.
+     */
+    public String obtenerNombre() {
+        return nombre;
+    }
 
-	public void agregar(Contenido contenido, String tok) {
-		// Solo el administrador puede usar este metodo
-		if(token.isAdminToken(tok)) { 
-			contenidos.add(contenido);
-		}
-	}
+    /**
+     * Devuelve todos los contenidos del servidor.
+     * @return la lista de contenidos
+     */
+    protected List<Contenido> getContenidos() {
+        return contenidos;
+    }
+    
+    /**
+     * Devuelve los tokens del servidor.
+     * @return lista de tokens
+     */
+    protected Token getToken() {
+        return token;
+    }
+    
+    /**
+     * Da de alta un token en el servidor.
+     * @return El token para que lo use el usuario.
+     */
+    public String alta() {
+        return token.alta();
+    }
 
-	public void eliminar(Contenido contenido, String tok) {
-		// Solo el administrador puede usar este metodo
-		if(token.isAdminToken(tok)) {
-			contenidos.remove(contenido);
-		}
-	}
+    /**
+     * Da de baja un token que ya no quieras usar.
+     * @param tok El token a dar de baja.
+     */
+    public void baja(final String tok) {
+        token.baja(tok);
+    }
+
+    /**
+     * Agregar un contenido a la lista (Sólo administrador).
+     * @param contenido El contenido a agregar.
+     * @param tok El token de administrador.
+     */
+    public void agregar(final Contenido contenido, final String tok) {
+        // Solo el administrador puede usar este metodo
+        if (token.isAdminToken(tok)) {
+            contenidos.add(contenido);
+        }
+    }
+
+    /**
+     * Eliminar un contenido de la lista (Sólo administrador).
+     * @param contenido El contenido a eliminar.
+     * @param tok El token de administrador.
+     */
+    public void eliminar(final Contenido contenido, final String tok) {
+        // Solo el administrador puede usar este metodo
+        if (token.isAdminToken(tok)) {
+            contenidos.remove(contenido);
+        }
+    }
 
 }
