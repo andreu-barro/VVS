@@ -21,6 +21,7 @@ import es.udc.fic.vvs.spoticopy.servidor.Servidor;
 import es.udc.fic.vvs.spoticopy.servidor.ServidorNormal;
 import es.udc.fic.vvs.spoticopy.token.Token;
 
+// test con quickcheck.generator
 public class ServidorTest {
 	@Test
 	public void nombreServidorTest(){
