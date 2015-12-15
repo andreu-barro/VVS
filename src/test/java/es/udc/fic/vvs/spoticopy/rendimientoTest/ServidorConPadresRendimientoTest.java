@@ -60,7 +60,7 @@ public class ServidorConPadresRendimientoTest {
     /**
      * Number of iteratios to check performance.
      */
-    private final Integer itNumber = 10000;
+    private final Integer itNumber = 1000;
     
 
 	@Test
@@ -77,21 +77,14 @@ public class ServidorConPadresRendimientoTest {
 			ServidorConPadres s1 = new ServidorConPadres(nombre,servidorPadre, contenido,tokenValido);
 
 			String titulo = "titulo1";
-			String titulo1 = "titulo1";
-			String titulo2 = "titulo3";
 
 			Integer duracion = 2;
-			Integer duracion1 = 3;
-			Integer duracion2 = 4;
+
 
 			Contenido cancion = new Cancion(titulo, duracion);
-			Contenido cancion1 = new Cancion(titulo1, duracion1);
-			Contenido cancion2 = new Cancion(titulo2, duracion2);
+
 			tokenValido2.add(s1.alta());
 			servidorPadre.agregar(cancion, "admin");
-			servidorPadre.agregar(cancion1, "admin");
-			servidorPadre.agregar(cancion2, "admin");
-			servidorPadre.agregar(cancion2, "admin");
 
 			testElementos.add(s1);
 		}
