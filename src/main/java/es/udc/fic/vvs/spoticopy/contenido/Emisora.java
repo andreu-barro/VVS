@@ -95,20 +95,18 @@ public class Emisora implements Contenido {
         // No se indica predecesor
         if (predecesor == null) {
             this.listaContenidos.add(0, contenido);
-            this.duracion += contenido.obtenerDuracion();
         } else if (this.listaContenidos.contains(predecesor)) {
             // Si tenemos el predecesor, insertamos el contenido
             // en la posicion siguiente. Suponemos que la siguiente
             // posicion esta vacia
             int pos = listaContenidos.indexOf(predecesor);
             this.listaContenidos.add(pos + 1, contenido);
-            this.duracion += contenido.obtenerDuracion();
         } else {
             // En cualquier otro caso, entra en primera posicion
             this.listaContenidos.add(0, contenido);
-            this.duracion += contenido.obtenerDuracion();
         }
-
+        this.duracion += contenido.obtenerDuracion();
+        
     }
 
     /**
