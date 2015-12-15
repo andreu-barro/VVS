@@ -4,27 +4,33 @@ import java.util.List;
 
 import es.udc.fic.vvs.spoticopy.contenido.Contenido;
 
+/**
+ * Un servidor ofrece una serie de contenidos. Un administrador puede
+ * agregar, y eliminar contenidos de su lista. Los usuarios pueden
+ * generar tokens, con los cuales no se agregan anuncios cuando buscan
+ * los contenidos del servidor.
+ */
 public interface Servidor {
 
-	/** Devuelve el nombre con el que identificar al servidor
+	/** Devuelve el nombre con el que identificar al servidor.
 	 * 
 	 *  @return el nombre del servidor
 	 */
-	public String obtenerNombre();
+	String obtenerNombre();
 	
 	/** Genera un token para obtener contenidos del servidor libres de
 	 *  anuncios. Tiene un número limitado de usos.
 	 *  
 	 *  @return el token generado
 	 */
-	public String alta();
+	String alta();
 	
 	/** Elimina un token pregenerado. ESTO LO HARA AUNQUE LE QUEDEN USOS
 	 *  RESTANTES, SOLO USAR SI ES SEGURO QUE NO SE QUIERE SEGUIR USANDO
 	 *
 	 * @param token El token a dar de baja
 	 */
-	public void baja(String token);
+	void baja(String token);
 	
 	/** Agrega el contenido a la lista del servidor. Esta operacion solo
 	 *  es posible mediante el uso de un token especial de administracion.
@@ -32,7 +38,7 @@ public interface Servidor {
 	 * @param contenido el contenido a agregar
 	 * @param token el token de administrador
 	 */
-	public void agregar(Contenido contenido, String token);
+	void agregar(Contenido contenido, String token);
 	
 	/** Elimina el contenido de la lista del servidor. Esta operacion solo
 	 *  es posible mediante el uso de un token especial de administracion.
@@ -40,7 +46,7 @@ public interface Servidor {
 	 * @param contenido el contenido a eliminar
 	 * @param token el token de administrador
 	 */
-	public void eliminar(Contenido contenido, String token);
+	void eliminar(Contenido contenido, String token);
 	
 	/** Devuelve los contenidos que tengan la subcadena en su titulo.
 	 * 
@@ -49,5 +55,5 @@ public interface Servidor {
 	 * anuncions por el medio de la lista resultado de la busqueda
 	 * @return la lista de contenidos que contienen la subcadena en el titulo
 	 */
-	public List<Contenido> buscar(String subcadena, String token);
+	List<Contenido> buscar(String subcadena, String token);
 }
