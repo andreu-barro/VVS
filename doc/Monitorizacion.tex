@@ -82,7 +82,50 @@
 	
 	\section{Estado actual}
 	
-	Listaxe de funcionalidades actuais, as súas especificacións, as persoas responsables do seu desenvolvemento, e as persoas responsables do proceso de proba.  Para cada funcionalidade: número de probas obxectivo, número de probas preparadas, porcentaxe executada e porcentaxe superada. Se esta información é profusa e se almacena noutra fonte, referencia á fonte. Se é cambiante, referencia a unha \emph{shapshot} ou resumo do mais destacado.
+	Listaxe de funcionalidades actuais, as súas especificacións, as persoas responsables do seu desenvolvemento, e as persoas responsables do proceso de proba.  Para cada funcionalidade: número de probas obxectivo, número de probas preparadas, porcentaxe executada e porcentaxe superada. Se esta información é profusa e se almacena noutra fonte, referencia á fonte. Se é cambiante, referencia a unha \emph{shapshot} ou resumo do mais destacado.\\ \\
+	Lasfunciones que se ocupan de la funcionalidad de nuestra aplicación son las siguientes y serán las que van a ser evaluadas:
+		\begin{itemize}
+			\item Clase Anuncio
+				\subitem String obtenerTitulo()
+				\subitem int obtenerDuracion()
+				\subitem List:Contenido obtenerListaReproduccion()
+				\subitem List:Contenido buscar(final String subcadena)
+				\subitem	void agregar(final Contenido contenido, final Contenido predecesor)
+				\subitem	eliminar(final Contenido contenido)
+			\item Clase Cancion
+				\subitem String obtenerTitulo()
+				\subitem int obtenerDuracion()
+				\subitem List:Contenido obtenerListaReproduccion()
+				\subitem List:Contenido buscar(final String subcadena)
+				\subitem	void agregar(final Contenido contenido, final Contenido predecesor)
+				\subitem	eliminar(final Contenido contenido)
+			\item Clase Emisora
+				\subitem String obtenerTitulo()
+				\subitem int obtenerDuracion()
+				\subitem List:Contenido obtenerListaReproduccion()
+				\subitem List:Contenido buscar(final String subcadena)
+				\subitem agregar(final Contenido contenido, final Contenido predecesor)
+				\subitem eliminar(final Contenido contenido)
+			\item Clase Token
+				\subitem String alta()
+				\subitem baja(final String token)
+				\subitem boolean isAdminToken(final String token)
+				\subitem long obtenerUsos(final String token)
+				\subitem usarToken(final String token)
+			\item Clase ServidorGenerico
+				\subitem String obtenerNombre()
+				\subitem List:Contenido getContenidos()
+				\subitem Token getToken()
+				\subitem String alta()
+				\subitem baja(final String tok)
+				\subitem agregar(final Contenido contenido, final String tok)
+				\subitem eliminar(final Contenido contenido, final String tok)
+			\item Clase ServidorNormal
+				\subitem List:Contenido buscar(final String subcadena, final String tok)
+			\item Clase ServidorConPadres
+				\subitem List:Contenido buscar(final String subcadena, final String tok)
+		\end{itemize}
+	
 	
 	\section{Registro de pruebas}
 	\subsection{JUnit}
