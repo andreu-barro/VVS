@@ -76,12 +76,12 @@ public class ServidorConPadres extends ServidorGenerico {
             }
         }
 
-        // Reducimos un uso al token
-        token.usarToken(tok);
-
         // Usamos al padre si el contenido está vacío
         if (resultado.isEmpty()) {
             resultado = padre.buscar(subcadena, tok);
+        } else {
+            // Reducimos un uso al token
+            token.usarToken(tok);
         }
 
         return resultado;
