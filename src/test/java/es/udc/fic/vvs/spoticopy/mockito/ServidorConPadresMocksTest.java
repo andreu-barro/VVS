@@ -1,5 +1,7 @@
 package es.udc.fic.vvs.spoticopy.mockito;
 
+import es.udc.fic.vvs.spoticopy.contenido.Anuncio;
+import es.udc.fic.vvs.spoticopy.contenido.Cancion;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
@@ -10,17 +12,15 @@ import org.mockito.Mockito;
 import static org.mockito.Mockito.*;
 
 import es.udc.fic.vvs.spoticopy.contenido.Contenido;
-import es.udc.fic.vvs.spoticopy.mocks.AnuncioMock;
-import es.udc.fic.vvs.spoticopy.mocks.CancionMock;
-import es.udc.fic.vvs.spoticopy.mocks.EmisoraMock;
+import es.udc.fic.vvs.spoticopy.contenido.Emisora;
 import es.udc.fic.vvs.spoticopy.servidor.ServidorNormal;
 import es.udc.fic.vvs.spoticopy.token.Token;
 
 public class ServidorConPadresMocksTest {
 
-    AnuncioMock anuncioMock = Mockito.mock(AnuncioMock.class);
-    EmisoraMock emisoraMock = Mockito.mock(EmisoraMock.class);
-    CancionMock cancionMock = Mockito.mock(CancionMock.class);
+    Anuncio anuncioMock = Mockito.mock(Anuncio.class);
+    Emisora emisoraMock = Mockito.mock(Emisora.class);
+    Cancion cancionMock = Mockito.mock(Cancion.class);
 
     @Test
     public void testMockAgregar() {
@@ -79,9 +79,9 @@ public class ServidorConPadresMocksTest {
         String subCadenaAnuncio = "Anuncio";
         String subCadenaEmisora = "Emisora";
 
-        List<Contenido> resultadoCanciones = new ArrayList<Contenido>();
-        List<Contenido> resultadoAnuncios = new ArrayList<Contenido>();
-        List<Contenido> resultadoEmisoras = new ArrayList<Contenido>();
+        List<Contenido> resultadoCanciones;
+        List<Contenido> resultadoAnuncios;
+        List<Contenido> resultadoEmisoras;
         resultadoCanciones = servidor.buscar(subCadenaCancion, strToken);
         assertEquals(resultadoCanciones.size(), 5);
         resultadoAnuncios = servidor.buscar(subCadenaAnuncio, strToken);
