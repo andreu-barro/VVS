@@ -32,7 +32,7 @@ public abstract class ServidorGenerico implements Servidor {
      * @param contenidos Los contenidos que ofrece.
      * @param token El sistema de tokens que usara.
      */
-    public ServidorGenerico(final String nombre, 
+    protected ServidorGenerico(final String nombre, 
             final List<Contenido> contenidos, final Token token) {
         this.nombre = nombre;
         this.contenidos = contenidos;
@@ -92,7 +92,7 @@ public abstract class ServidorGenerico implements Servidor {
      */
     public void agregar(final Contenido contenido, final String tok) {
         // Solo el administrador puede usar este metodo
-        if (token.isAdminToken(tok)) {
+        if (token.isAdminToken(tok) && contenido != null) {
             contenidos.add(contenido);
         }
     }

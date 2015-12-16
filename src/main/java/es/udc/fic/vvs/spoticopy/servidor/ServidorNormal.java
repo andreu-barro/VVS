@@ -58,15 +58,16 @@ public class ServidorNormal extends ServidorGenerico {
         }
         for (Contenido i : busqueda) {
             resultado.add(i);
-            interv++;
-            if (interv >= espacio) {
-                resultado.add(new Anuncio());
-                interv = 0;
+            if (!hayToken) {
+                interv++;
+                if (interv >= espacio) {
+                    resultado.add(new Anuncio());
+                    interv = 0;
+                }
             }
         }
 
-		// Reducimos un uso al token
-        // Reducimos un uso al token
+	// Reducimos un uso al token
         if (hayToken && !token.isAdminToken(tok)) {
             token.usarToken(tok);
         }

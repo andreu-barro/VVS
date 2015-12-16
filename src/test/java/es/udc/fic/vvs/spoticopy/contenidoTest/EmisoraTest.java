@@ -91,6 +91,11 @@ public class EmisoraTest {
         assertEquals(emisora.obtenerListaReproduccion().size(), 2);
         assertEquals(emisora.obtenerDuracion(), 12);
         assertFalse(emisora.obtenerListaReproduccion().contains(cancion4));
+        
+        // Eliminamos un NULL
+        emisora.eliminar(null);
+        assertEquals(emisora.obtenerListaReproduccion().size(), 2);
+        assertEquals(emisora.obtenerDuracion(), 12);
     }
 
     @Test

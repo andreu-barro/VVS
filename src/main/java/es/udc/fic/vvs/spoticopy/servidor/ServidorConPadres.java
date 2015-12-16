@@ -67,17 +67,17 @@ public class ServidorConPadres extends ServidorGenerico {
         }
         for (Contenido i : busqueda) {
             resultado.add(i);
-            interv++;
-            if (interv >= espacio) {
-                resultado.add(new Anuncio());
-                interv = 0;
+            if (!hayToken) {
+                interv++;
+                if (interv >= espacio) {
+                    resultado.add(new Anuncio());
+                    interv = 0;
+                }
             }
         }
 
         // Reducimos un uso al token
-        if (token != null && !token.isAdminToken(tok)) {
-            token.usarToken(tok);
-        }
+        token.usarToken(tok);
 
         // Usamos al padre si el contenido está vacío
         if (resultado.isEmpty()) {

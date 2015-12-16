@@ -131,7 +131,7 @@ public class Token {
      * @param token Token a usar.
      */
     public void usarToken(final String token) {
-        if (token != null) {
+        if (token != null && !isAdminToken(token)) {
             int index = tokens.indexOf(token);
             if (index >= 0) {
                 Long uso = usos.get(index);
