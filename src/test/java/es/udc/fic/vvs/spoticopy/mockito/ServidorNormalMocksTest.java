@@ -13,7 +13,6 @@ import es.udc.fic.vvs.spoticopy.contenido.Contenido;
 import es.udc.fic.vvs.spoticopy.mocks.AnuncioMock;
 import es.udc.fic.vvs.spoticopy.mocks.CancionMock;
 import es.udc.fic.vvs.spoticopy.mocks.EmisoraMock;
-import es.udc.fic.vvs.spoticopy.servidor.ServidorGenerico;
 import es.udc.fic.vvs.spoticopy.servidor.ServidorNormal;
 import es.udc.fic.vvs.spoticopy.token.Token;
 
