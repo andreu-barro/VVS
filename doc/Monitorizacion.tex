@@ -70,7 +70,15 @@
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\section{Contexto}
 	
-	Este documento hace referencia a las pruebas realizadas sobre el proyecto de la asignatura VVS llamado Spoticopy\footnote{https://github.com/andreu-barro/VVS} encontrado en el repositorio de GitHub.
+	Este documento hace referencia a las pruebas realizadas sobre el proyecto de la asignatura VVS llamado Spoticopy\footnote{https://github.com/andreu-barro/VVS} encontrado en el repositorio de GitHub. Dicha aplicación simula el comportamiento de una aplicación de música. El enunciado de la funcionalidad es el siguiente:\\
+	\includegraphics[width=18cm]{Imagenes/DiagramaSimple.png}\\
+	A partir de dicho diagrama obtuvimos la siguiente relación de clases:\\
+		\includegraphics[width=8cm]{Imagenes/Clases.png} \\
+	El paquete contenido tienen siempre un nombre, una duración y una lista de reproducción. Son las unidades funcionales con las que funcionará nuestro servidor.
+	El paquete servidor es el que utiliza el paquete contenido para simular el funcionamiento de una aplicación que reproduce música. Distinguiremos ServidorGenerico que contiene el comportamiento genérico de un servidor. Las particularidades se implementan en distintas clases que heredaran de ServidorGenerico.
+	El servidor normal simplemente implementa la búsqueda además de heredar del servidor genérico.
+	La peculiaridad de un ServidorConPadres es que, de no poder devolver contenidos que cumplan el criterio de busqueda, solicita los contenidos de otro servidor, llamado padre, y devuelve lo que el le proporcione. Cualquier servidor puede ser el padre, no necesariamente otro Servidor ConPadres (aunque seria posible montarse arboles, listas o mallas de Servidores). OJO,la implementación no contempla el caso de un anillo de servidores, intentarlo creara un bucle infinito.
+
 	
 	\section{Estado actual}
 	
