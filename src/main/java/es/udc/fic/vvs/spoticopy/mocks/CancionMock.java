@@ -5,11 +5,11 @@ import java.util.List;
 
 import es.udc.fic.vvs.spoticopy.contenido.Contenido;
 
-public class EmisoraMock implements Contenido {
+public class CancionMock implements Contenido {
 
-    private String titulo;
-    private int duracion;
-    private ArrayList<Contenido> listaReproduccion;
+    String titulo;
+    int duracion;
+    ArrayList<Contenido> listaReproduccion;
 
     @Override
     public String obtenerTitulo() {
@@ -28,15 +28,18 @@ public class EmisoraMock implements Contenido {
 
     @Override
     public List<Contenido> buscar(String subcadena) {
-        List<Contenido> lista = new ArrayList<Contenido>();
-        return lista;
+        return listaReproduccion;
     }
 
     @Override
     public void agregar(Contenido contenido, Contenido predecesor) {
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void eliminar(Contenido contenido) {
+        throw new UnsupportedOperationException();
+
     }
+
 }
