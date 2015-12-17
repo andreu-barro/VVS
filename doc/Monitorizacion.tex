@@ -152,6 +152,8 @@
 	De esta forma Cobertura se convierte en una potente herramienta de trabajo, ya que lo podemos usar como medida de calidad (mientras más código tengamos probado, más garantías tenemos de que podemos hacer refactorizaciones sin peligro).
 	Nuestro objetivo es llegar a cobertura cercana a 100.
 	
+	\subsection{Pruebas no funcionales: JETM}
+	JETM permite realizar pruebas de rendimiento y comprobar la velocidad de ejecuciones al implementar unas pruebas con n iteraciones. Se pueden generar test con múltiples iteraciones para detectar problemas de rendimiento.
 	\subsection{Validación de calidad de las pruebas (mutación testing): PIT}
 	
 	El  método que utilizaban en el sistema para realizar estas mediciones lo denominaba “Programa mutado”.
@@ -203,7 +205,7 @@
 	
 	Todos los errores localizados, modificaciones necesarias, etc. pueden encontrarse referenciados en el documento de CHANGELOG.txt, en el cual se encuentran las correcciones hasta el momento.
 	
-	\section{Cobertura}
+	\subsection{Validación de la calidad de las pruebas: Cobertura}
 	Realizada la prueba de cobertura de pruebas, se observa que faltan muchos test por implementar, por lo que se procede a implementar los test que faltan, según la información que nos ofrece el plugin de ecobertura.\\
 	\includegraphics[width=15cm]{Imagenes/CoberturaSemana1.png} \\
 	Después utilizar Junit y Quickcheck para:
@@ -218,12 +220,17 @@
 	
 	\includegraphics[width=15cm]{Imagenes/Covertura3.png}
 	
+	\subsection{Pruebas no funcionales: JETM}
+	Resultado del rendimiento de JETM:
+	href{Informes/SiteTestInicial/jetm-timing-report.html}{Informe JETM} \\
+	
+	
 	\subsection{Validación de calidad de las pruebas (mutación testing): PIT}
 	Realizado el mutation testing, resultados:
 	
 	\href{Informes/PIT1/index.html}{Informe PIT} \\
 	
-	\subsection{CheckStyle}
+	\subsection{Pruebas estructurales: CheckStyle}
 	Podemos comprobar los herrores encontrados en el siguiente informe: \href{Informes/SiteTestInicial/checkstyle.html}{Informe CheckStyle} \\
 	Al pasar la herramienta de CheckStyle descubrimos que nuestra aplicación tiene unos 236 errores de estilo, es decir, que no cumple el estandar de programación java.
 	
