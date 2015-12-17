@@ -53,7 +53,7 @@
 			\begin{tabular}{ | p{3cm} | p{2cm} | p{4cm} | p{6cm} |}
 				\hline
 				\textbf{Fecha} & \textbf{Versión} & \textbf{Descripción} & \textbf{Autores} \\ \hline
-				16/12/2015 &  1.0 &  Ejercicio de refactorización & Xoán Andreu Barro Torres \newline F. Javier Moure López \newline Emma Oitavén Carracedo \\ \hline
+				16/12/2015 &  1.0 &  Monitorización de pruebas & Xoán Andreu Barro Torres \newline F. Javier Moure López \newline Emma Oitavén Carracedo \\ \hline
 			\end{tabular}
 		\end{center}
 		
@@ -79,10 +79,10 @@
 	El servidor normal simplemente implementa la búsqueda además de heredar del servidor genérico.
 	La peculiaridad de un ServidorConPadres es que, de no poder devolver contenidos que cumplan el criterio de busqueda, solicita los contenidos de otro servidor, llamado padre, y devuelve lo que el le proporcione. Cualquier servidor puede ser el padre, no necesariamente otro Servidor ConPadres (aunque seria posible montarse arboles, listas o mallas de Servidores). OJO,la implementación no contempla el caso de un anillo de servidores, intentarlo creara un bucle infinito.
 
+	\newpage
 	
 	\section{Estado actual}
 	
-	Listaxe de funcionalidades actuais, as súas especificacións, as persoas responsables do seu desenvolvemento, e as persoas responsables do proceso de proba.  Para cada funcionalidade: número de probas obxectivo, número de probas preparadas, porcentaxe executada e porcentaxe superada. Se esta información é profusa e se almacena noutra fonte, referencia á fonte. Se é cambiante, referencia a unha \emph{shapshot} ou resumo do mais destacado.\\ \\
 	Las funciones que se ocupan de la funcionalidad de nuestra aplicación son las siguientes son las que serán evaluadas:
 		\begin{itemize}
 			\item Clase Anuncio
@@ -268,8 +268,4 @@
 	\\
 	\includegraphics[width=15cm]{Imagenes/FindsBugs2.png} \\
 
-	\section{Otros aspectos de interés}
-	
-	Nada de momento. Se conserva el apartado para el futuro.
-	
 \end{document}
