@@ -152,6 +152,11 @@
 	De esta forma Cobertura se convierte en una potente herramienta de trabajo, ya que lo podemos usar como medida de calidad (mientras más código tengamos probado, más garantías tenemos de que podemos hacer refactorizaciones sin peligro).
 	Nuestro objetivo es llegar a cobertura cercana a 100.
 	
+	\subsection{Pruebas dinámicas de unidad: Mockito}
+	Para poder crear un buen conjunto de pruebas unitarias, es necasario que nos centremos exclusivamente en la clase a testear, simulando el funcionamiento de las capas inferiores (pensad por ejemplo en olvidarnos de la capa de acceso a datos, DAO). De esta manera estaremos creando test unitarios potentes que os permitiría detectar y solucionar los errores que tengáis o que se cometan durante el futuro del desarrollo de vuestra aplicación.
+	Para esta tarea nos apoyaremos en el uso de mock objects, que no son más que objetos que simulan parte del comportamiento de una clase, y más especificamente vamos a ver una herramienta que permite generar mock objects dinámicos, mockito.
+	
+	Pruebas que se realizarán en el paquete es.udc.fic.vvs.spoticopy.mockito, sólo se realizarán las pruebas del servidor, debido a que las pruebas de componentes ya son pruebas de unidad.
 	\subsection{Pruebas no funcionales: JETM}
 	JETM permite realizar pruebas de rendimiento y comprobar la velocidad de ejecuciones al implementar unas pruebas con n iteraciones. Se pueden generar test con múltiples iteraciones para detectar problemas de rendimiento.
 	\subsection{Validación de calidad de las pruebas (mutación testing): PIT}
@@ -260,15 +265,7 @@
 	Después de identificar los errores, resolvedos los problemas mencionados y comprobamos el resultado:\\
 	\\
 	\includegraphics[width=15cm]{Imagenes/FindsBugs2.png} \\
-	\begin{itemize}
-		\item Errores diarios encontrados:
-		\item Errores semanales encontrados:
-		\item Progreso en las pruebas:
-		\item Análisis del perfil de detección de errores (lugares, componentes, tipología).
-		\item Informe de errores abiertos y cerrados por nivel de criticidad.
-		\item Evaluación global del estado de calidad y estabilidad actuales.
-	\end{itemize}
-	
+
 	\section{Otros aspectos de interés}
 	
 	Nada de momento. Se conserva el apartado para el futuro.
